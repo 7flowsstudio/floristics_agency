@@ -46,9 +46,8 @@ html {
 
 body {
 	background: var(--with-taste-bg);
-	color: var(--white);
+	color: var(--with-taste-black);
 	margin: 0;
-	padding-top: 62px;
 }
 
 html,
