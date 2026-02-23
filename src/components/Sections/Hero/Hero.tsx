@@ -1,4 +1,5 @@
 import Container from "@/components/common/Container/Container";
+import Button from "@/components/ui/Button";
 import Image from "next/image";
 import React from "react";
 
@@ -17,8 +18,8 @@ const Hero = () => {
       <Container>
         <h1>Мрій яскраво, твори сміливо</h1>
         <p>Флористика та food-флористика для тих, хто любить творити</p>
-        <button>Записатися на курс</button>
-        <button>Дізнатися більше</button>
+        <Button>Записатися на курс</Button>
+        <Button>Дізнатися більше</Button>
         <div className="relative w-[520px] h-[674px] hidden md:block">
           <Image
             src="/img/hero/deshero.webp"
