@@ -1,6 +1,6 @@
-import About from "@/components/Sections/About/About";
-import Courses from "@/components/Sections/Courses/Courses";
-import Hero from "@/components/Sections/Hero/Hero";
+import About from "@/components/sections/About";
+import Courses from "@/components/sections/Courses";
+import Hero from "@/components/sections/Hero";
 
 export default function Home() {
   return (

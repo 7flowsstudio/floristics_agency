@@ -1,4 +1,4 @@
-import Container from "@/components/common/Container/Container";
+import Container from "@/components/layout/Container";
 import Button from "@/components/ui/Button";
 import Image from "next/image";
 import React from "react";
