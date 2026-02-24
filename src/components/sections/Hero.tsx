@@ -12,32 +12,42 @@ const Hero = () => {
   bg-center
   bg-cover
   md:bg-none
-  h-screen
+  h-[90vh]
   w-full"
     >
       <Container>
-        <h1>Мрій яскраво, твори сміливо</h1>
-        <p>Флористика та food-флористика для тих, хто любить творити</p>
-        <Button variant="primary" size="sm">
-          Записатися на курс
-        </Button>
-        <Button
-          iconSrc="/arrow-down.svg"
-          variant="outline"
-          size="sm"
-          iconPosition="right"
-        >
-          Дізнатися більше
-        </Button>
-        <div className="relative w-[520px] h-[674px] hidden md:block">
-          <Image
-            src="/img/hero/deshero.webp"
-            alt="flowers"
-            fill
-            style={{ objectFit: "contain" }}
-            priority={false}
-            loading="lazy"
-          />
+        <div className="flex flex-row md:gap-[28px] md:justify-between xl:gap-[128px]">
+          <div className="flex flex-col mx-auto justify-between md:justify-start h-[90vh] md:mx-0">
+            <div>
+              <h1 className="text-[#1C686D]">
+                Мрій яскраво, <span>твори сміливо</span>
+              </h1>
+              <p>Флористика та food-флористика для тих, хто любить творити</p>
+            </div>
+            <div className="flex flex-col gap-[8px] lg:flex-row md:gap-[20px] w-full">
+              <Button className="w-full" variant="primary">
+                Записатися на курс
+              </Button>
+              <Button
+                className="w-full"
+                iconSrc="/arrow-down.svg"
+                variant="outline"
+                iconPosition="right"
+              >
+                Дізнатися більше
+              </Button>
+            </div>
+          </div>
+          <div className="relative w-[520px] h-[674px] hidden md:block">
+            <Image
+              src="/img/hero/deshero.webp"
+              alt="flowers"
+              fill
+              style={{ objectFit: "contain" }}
+              priority={false}
+              loading="lazy"
+            />
+          </div>
         </div>
       </Container>
     </div>

@@ -7,7 +7,7 @@ type ButtonProps = {
   iconSrc?: string; // шлях до svg в public
   iconPosition?: "left" | "right";
   variant?: "primary" | "outline";
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md";
   className?: string;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
@@ -16,25 +16,18 @@ export default function Button({
   iconSrc,
   iconPosition = "right",
   variant = "primary",
-  size = "md",
   className,
   ...props
 }: ButtonProps) {
   const base =
-    "inline-flex items-center justify-center gap-3 rounded-[32px] transition duration-300 font-medium";
+    "inline-flex items-center justify-center gap-3 rounded-[32px] md:rounded-[40px] transition duration-300 text-xl";
 
   const variants = {
     primary: "bg-[#1C686D] text-white hover:bg-[#115256]",
     outline:
       "bg-transparent border border-[#1C686D] text-[#1C686D] hover:border-[#115256] hover:bg-[#9DC6C933]",
   };
-
-  const sizes = {
-    sm: "h-10 px-4 text-sm",
-    md: "h-14 px-6 text-base",
-    lg: "h-[72px] px-8 text-lg",
-  };
-
+  const responsiveHeight = "h-[52px] md:h-[72px]";
   const iconElement = iconSrc ? (
     <Image
       src={iconSrc}
@@ -47,7 +40,7 @@ export default function Button({
 
   return (
     <button
-      className={clsx(base, variants[variant], sizes[size], className)}
+      className={clsx(base, variants[variant], responsiveHeight, className)}
       {...props}
     >
       {iconElement && iconPosition === "left" && iconElement}
