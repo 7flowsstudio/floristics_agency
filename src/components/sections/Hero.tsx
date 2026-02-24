@@ -18,8 +18,17 @@ const Hero = () => {
       <Container>
         <h1>Мрій яскраво, твори сміливо</h1>
         <p>Флористика та food-флористика для тих, хто любить творити</p>
-        <Button>Записатися на курс</Button>
-        <Button>Дізнатися більше</Button>
+        <Button variant="primary" size="sm">
+          Записатися на курс
+        </Button>
+        <Button
+          iconSrc="/arrow-down.svg"
+          variant="outline"
+          size="sm"
+          iconPosition="right"
+        >
+          Дізнатися більше
+        </Button>
         <div className="relative w-[520px] h-[674px] hidden md:block">
           <Image
             src="/img/hero/deshero.webp"

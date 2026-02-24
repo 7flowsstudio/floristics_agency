@@ -58,6 +58,7 @@ body {
 h1 {
   font-family: var(--second-family);
   font-size: 40px;
+  color: var(--with-taste-primary);
 }
 h1,
 h2,
@@ -96,22 +97,18 @@ address {
   font-style: normal;
 }
 
-button {
+/* button {
   cursor: pointer;
   border-radius: 32px;
-  /* padding: 24px 16px;
-  width: 304px;
-  height: 72px; */
   background: var(--with-taste-primary);
   color: var(--white);
   font-family: var(--font-family);
   font-weight: 600;
-  /* font-size: 20px; */
 }
 
 button:hover {
   background: var(--with-taste-active-primary);
-}
+} */
 
 input {
   outline: transparent;
