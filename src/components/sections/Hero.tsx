@@ -13,7 +13,9 @@ const Hero = () => {
   bg-cover
   md:bg-none
   h-[90vh]
-  w-full"
+  w-full
+  pt-[40px] md:pt-[60px]
+  "
     >
       <Container>
         <div className="flex flex-row md:gap-[28px] md:justify-between xl:gap-[120px]">
@@ -27,7 +29,9 @@ const Hero = () => {
                   </span>
                 </h1>
               </div>
-              <p>Флористика та food-флористика для тих, хто любить творити</p>
+              <p className="text-[20px] leading-[117%] tracking-[0.01em] md:pb-10 text-center pt-[12px] lg:text-[22px] lg:[24px]">
+                Флористика та food-флористика для тих, хто любить творити
+              </p>
             </div>
             <div className="flex flex-col gap-[8px] lg:flex-row md:gap-[20px] w-full">
               <Button className="w-full" variant="primary">
@@ -43,12 +47,12 @@ const Hero = () => {
               </Button>
             </div>
           </div>
-          <div className="relative w-[520px] h-[674px] hidden md:block">
+          <div className="relative w-[520px] h-[674px] hidden md:block rounded-[16px] overflow-hidden">
             <Image
               src="/img/hero/deshero.webp"
               alt="flowers"
               fill
-              style={{ objectFit: "contain" }}
+              style={{ objectFit: "cover" }}
               priority={false}
               loading="lazy"
             />
