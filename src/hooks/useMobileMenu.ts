@@ -7,7 +7,6 @@ export const useMobileMenu = () => {
   const open = () => setIsOpen(true);
   const close = () => setIsOpen(false);
 
-  // Close menu when clicking outside or on escape
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') close();

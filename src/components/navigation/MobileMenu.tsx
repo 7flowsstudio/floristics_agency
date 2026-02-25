@@ -1,4 +1,3 @@
-import NavLink from './NavLink';
 import Link from 'next/link';
 interface MobileMenuProps {
   isOpen: boolean;
@@ -17,7 +16,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
 
       <div
         data-mobile-menu
-        className={`fixed top-0 right-0 h-full w-4/5 bg-tasteBg z-50 overflow-hidden flex flex-col transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-4/5 bg-background z-50 overflow-hidden flex flex-col transform transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -54,37 +53,37 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
         <div className="flex flex-col items-start gap-10">
           <Link
             href="/"
-            className="text-xl font-medium tracking-tight text-(--with-taste-primary) leading-normal"
+            className="text-xl font-medium tracking-tight text-primary leading-normal"
           >
             Головна
           </Link>
           <Link
             href="/about"
-            className="text-xl font-medium tracking-tight text-(--with-taste-primary) leading-normal"
+            className="text-xl font-medium tracking-tight text-primary leading-normal"
           >
             Про мене
           </Link>
           <Link
             href="/courses"
-            className="text-xl font-medium tracking-tight text-(--with-taste-primary) leading-normal"
+            className="text-xl font-medium tracking-tight text-primary leading-normal"
           >
             Курси
           </Link>
           <Link
             href="/history"
-            className="text-xl font-medium tracking-tight text-(--with-taste-primary) leading-normal"
+            className="text-xl font-medium tracking-tight text-primary leading-normal"
           >
             Трішки історії
           </Link>
           <Link
             href="/photos"
-            className="text-xl font-medium tracking-tight text-(--with-taste-primary) leading-normal"
+            className="text-xl font-medium tracking-tight text-primary leading-normal"
           >
             Фотоальбом
           </Link>
           <Link
             href="/contacts"
-            className="text-xl font-medium tracking-tight text-(--with-taste-primary) leading-normal"
+            className="text-xl font-medium tracking-tight text-primary leading-normal"
           >
             Контакти
           </Link>
