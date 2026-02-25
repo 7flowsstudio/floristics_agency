@@ -10,14 +10,14 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
     <>
       <div
         className={`fixed inset-0 z-40 transition-opacity duration-300 ${
-          isOpen ? 'opacity-100 bg-(--bg-2)' : 'opacity-0 pointer-events-none'
+          isOpen ? 'opacity-100 bg-backgroundBg' : 'opacity-0 pointer-events-none'
         }`}
         onClick={onClose}
       />
 
       <div
         data-mobile-menu
-        className={`fixed top-0 right-0 h-full w-4/5 bg-(--with-taste-bg) z-50 overflow-hidden flex flex-col transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-4/5 bg-tasteBg z-50 overflow-hidden flex flex-col transform transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -50,55 +50,56 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
         </button>
       </div>
 
-      <nav className="flex-1 flex flex-col justify-start px-6">
-        <div className="flex flex-col items-start gap-6">
+      <nav className="flex-1 flex flex-col justify-start px-8">
+        <div className="flex flex-col items-start gap-10">
           <Link
             href="/"
-            className="text-xl font-medium tracking-tight text-(--with-taste-primary)"
+            className="text-xl font-medium tracking-tight text-(--with-taste-primary) leading-normal"
           >
             Головна
           </Link>
           <Link
             href="/about"
-            className="text-xl font-medium tracking-tight text-(--with-taste-primary)"
+            className="text-xl font-medium tracking-tight text-(--with-taste-primary) leading-normal"
           >
             Про мене
           </Link>
           <Link
             href="/courses"
-            className="text-xl font-medium tracking-tight text-(--with-taste-primary)"
+            className="text-xl font-medium tracking-tight text-(--with-taste-primary) leading-normal"
           >
             Курси
           </Link>
           <Link
             href="/history"
-            className="text-xl font-medium tracking-tight text-(--with-taste-primary)"
+            className="text-xl font-medium tracking-tight text-(--with-taste-primary) leading-normal"
           >
             Трішки історії
           </Link>
           <Link
             href="/photos"
-            className="text-xl font-medium tracking-tight text-(--with-taste-primary)"
+            className="text-xl font-medium tracking-tight text-(--with-taste-primary) leading-normal"
           >
             Фотоальбом
           </Link>
           <Link
             href="/contacts"
-            className="text-xl font-medium tracking-tight text-(--with-taste-primary)"
+            className="text-xl font-medium tracking-tight text-(--with-taste-primary) leading-normal"
           >
             Контакти
           </Link>
         </div>
       </nav>
 
-      <div className="grid grid-cols-3 gap-0 pb-12">
+      <div className="flex items-center justify-center gap-8 pb-14">
         <a
           href="#"
           aria-label="Instagram"
+          className='p-2.5'
         >
           <svg
-            width="39"
-            height="39"
+            width="50"
+            height="50"
             viewBox="0 0 39 39"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -120,8 +121,8 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
           aria-label="Facebook"
         >
           <svg
-            width="20"
-            height="20"
+            width="30"
+            height="30"
             viewBox="0 0 20 20"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -137,8 +138,8 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
           aria-label="Telegram"
         >
           <svg
-            width="40"
-            height="40"
+            width="60"
+            height="60"
             viewBox="0 0 40 40"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

@@ -22,7 +22,7 @@ const Hero = () => {
           <div className="flex flex-col mx-auto justify-between md:justify-start h-[90vh] md:mx-0">
             <div className="mx-auto">
               <div className="mx-auto max-w-[400px] lg:max-w-full">
-                <h1 className="text-[#1C686D] text-[40px] leading-[45px] lg:text-[64px] lg:leading-[65px] ">
+                <h1 className="text-[#1C686D] text-[40px] leading-[45px] lg:text-[64px] lg:leading-[65px] font-secondary md:pt-31.25">
                   Мрій яскраво,{" "}
                   <span className="block text-right min-[1407px]:inline min-[1407px]:text-left">
                     твори сміливо

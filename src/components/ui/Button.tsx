@@ -20,12 +20,12 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const base =
-    "inline-flex items-center justify-center gap-3 rounded-[32px] md:rounded-[40px] transition duration-300 text-xl";
+    "inline-flex items-center justify-center gap-3 rounded-[32px] md:rounded-[40px] transition duration-300 text-xl cursor-poiner";
 
   const variants = {
-    primary: "bg-[#1C686D] text-white hover:bg-[#115256]",
+    primary: "bg-[#1C686D] text-white hover:bg-[#115256] cursor-pointer",
     outline:
-      "bg-transparent border border-[#1C686D] text-[#1C686D] hover:border-[#115256] hover:bg-[#9DC6C933]",
+      "bg-transparent border border-[#1C686D] text-[#1C686D] hover:border-[#115256] hover:bg-[#9DC6C933] cursor-pointer",
   };
   const responsiveHeight = "h-[52px] md:h-[72px]";
   const iconElement = iconSrc ? (

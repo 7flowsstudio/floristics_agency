@@ -45,21 +45,21 @@ const Header = () => {
 
   return (
     <>
-      <header className="w-full py-8.75">
+      <header className="w-full py-8.75 bg-background">
         <Container>
           <div className="hidden md:flex items-center justify-between">
             <Logo variant={isHome ? 'primary' : 'black'} size="sm" />
 
             <nav className="flex gap-2">
-              <NavLink href="/">Головна</NavLink>
               <NavLink href="/about">Про мене</NavLink>
               <NavLink href="/courses">Курси</NavLink>
-              <NavLink href="/history">Трішки історії</NavLink>
-              <NavLink href="/photos">Фотоальбом</NavLink>
+              <NavLink href="/history"> Iсторія</NavLink>
+              <NavLink href="/reviews">Відгуки</NavLink>
+              <NavLink href="/photos">Фото</NavLink>
               <NavLink href="/contacts">Контакти</NavLink>
             </nav>
 
-            <a href="tel:+380932451284" className="text-sm font-medium">
+            <a href="tel:+380932451284" className="text-black flex items-center gap-4">
               <svg
                 width="18"
                 height="18"

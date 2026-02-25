@@ -18,10 +18,10 @@ const NavLink = ({ href, children, className }: Props) => {
     <Link
       href={href}
       className={clsx(
-        'transition-colors px-6.25 py-2 text-center justify-start text-(--with-taste-black) text-[20px] font-(--font-family) tracking-tight',
+        'transition-colors px-8.5 py-2 text-center justify-start text-black text-xl font-medium font-primary tracking-[0.2px] leading-normal',
         isActive
-          ? 'text-(--with-taste-primary) border-b border-(--with-taste-primary)'
-          : 'text-(--with-taste-black) hover:text-(--with-taste-primary)',
+          ? 'text-primaryActive border-b border-primaryActive'
+          : 'text-black hover:text-primary',
         className
       )}
     >

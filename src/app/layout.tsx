@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="uk">
       <body>
         <Header />
-        <main>{children}</main>
+        <main className="bg-background scroll-smooth scroll-pt-12.5 overflow-x-hidden w-full">{children}</main>
         <Footer />
       </body>
     </html>
