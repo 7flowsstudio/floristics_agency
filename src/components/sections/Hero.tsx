@@ -16,12 +16,17 @@ const Hero = () => {
   w-full"
     >
       <Container>
-        <div className="flex flex-row md:gap-[28px] md:justify-between xl:gap-[128px]">
+        <div className="flex flex-row md:gap-[28px] md:justify-between xl:gap-[120px]">
           <div className="flex flex-col mx-auto justify-between md:justify-start h-[90vh] md:mx-0">
-            <div>
-              <h1 className="text-[#1C686D]">
-                Мрій яскраво, <span>твори сміливо</span>
-              </h1>
+            <div className="mx-auto">
+              <div className="mx-auto max-w-[400px] lg:max-w-full">
+                <h1 className="text-[#1C686D] text-[40px] leading-[45px] lg:text-[64px] lg:leading-[65px] ">
+                  Мрій яскраво,{" "}
+                  <span className="block text-right min-[1407px]:inline min-[1407px]:text-left">
+                    твори сміливо
+                  </span>
+                </h1>
+              </div>
               <p>Флористика та food-флористика для тих, хто любить творити</p>
             </div>
             <div className="flex flex-col gap-[8px] lg:flex-row md:gap-[20px] w-full">

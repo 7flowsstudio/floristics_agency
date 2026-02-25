@@ -57,8 +57,9 @@ body {
 }
 h1 {
   font-family: var(--second-family);
-  font-size: 40px;
+  /* line-height: 45px; */
   color: var(--with-taste-primary);
+  /* text-align: center; */
 }
 h1,
 h2,
@@ -96,7 +97,9 @@ a {
 address {
   font-style: normal;
 }
-
+button {
+  cursor: pointer;
+}
 /* button {
   cursor: pointer;
   border-radius: 32px;
