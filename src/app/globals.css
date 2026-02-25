@@ -48,6 +48,7 @@ body {
   background: var(--with-taste-bg);
   color: var(--with-taste-black);
   margin: 0;
+  font-family: var(--font-family);
 }
 
 html,
@@ -56,9 +57,12 @@ body {
   width: 100%;
 }
 h1 {
-  font-family: var(--second-family);
-  font-size: 40px;
+  /* line-height: 45px; */
   color: var(--with-taste-primary);
+  /* text-align: center; */
+}
+h2 {
+  font-family: var(--font-family);
 }
 h1,
 h2,
@@ -76,7 +80,7 @@ p {
   font-size: 20px;
   letter-spacing: 0.01em;
   color: #000;
-  text-align: left;
+  /* text-align: left; */
 }
 
 p:last-child {
@@ -96,7 +100,9 @@ a {
 address {
   font-style: normal;
 }
-
+button {
+  cursor: pointer;
+}
 /* button {
   cursor: pointer;
   border-radius: 32px;
