@@ -18,7 +18,7 @@ const NavLink = ({ href, children, className }: Props) => {
     <Link
       href={href}
       className={clsx(
-        'transition-colors text-sm font-medium px-6.25 py-2',
+        'transition-colors px-6.25 py-2 text-center justify-start text-(--with-taste-black) text-[20px] font-(--font-family) tracking-tight',
         isActive
           ? 'text-(--with-taste-primary) border-b border-(--with-taste-primary)'
           : 'text-(--with-taste-black) hover:text-(--with-taste-primary)',
