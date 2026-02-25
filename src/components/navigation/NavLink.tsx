@@ -7,9 +7,10 @@ import clsx from 'clsx';
 type Props = {
   href: string;
   children: React.ReactNode;
+  className?: string;
 };
 
-const NavLink = ({ href, children }: Props) => {
+const NavLink = ({ href, children, className }: Props) => {
   const pathname = usePathname();
   const isActive = pathname === href;
 
@@ -21,6 +22,7 @@ const NavLink = ({ href, children }: Props) => {
         isActive
           ? 'text-(--with-taste-primary) border-b border-(--with-taste-primary)'
           : 'text-(--with-taste-black) hover:text-(--with-taste-primary)',
+        className
       )}
     >
       {children}
