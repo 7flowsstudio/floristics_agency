@@ -1,8 +1,8 @@
-import Container from '../layout/Container';
-import Link from 'next/link';
-import Image from 'next/image';
-import SectionHeading from '../ui/SectionHeading';
-import SectionSubheading from '../ui/SectionSubheading';
+import Container from "../layout/Container";
+import Link from "next/link";
+import Image from "next/image";
+import SectionHeading from "../ui/SectionHeading";
+import SectionSubheading from "../ui/SectionSubheading";
 
 function Histories() {
   return (

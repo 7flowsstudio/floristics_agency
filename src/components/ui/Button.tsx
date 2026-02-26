@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import Image from "next/image";
+import Link from "next/link";
 
 type ButtonProps = {
   children: React.ReactNode;
@@ -9,6 +10,7 @@ type ButtonProps = {
   variant?: "primary" | "outline";
   size?: "sm" | "md";
   className?: string;
+  href?: string;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export default function Button({
@@ -17,6 +19,7 @@ export default function Button({
   iconPosition = "right",
   variant = "primary",
   className,
+  href,
   ...props
 }: ButtonProps) {
   const base =
@@ -37,6 +40,16 @@ export default function Button({
       unoptimized // обов'язково для svg з public
     />
   ) : null;
+  const classes = clsx(base, variants[variant], responsiveHeight, className);
+  if (href) {
+    return (
+      <Link href={href} className={classes}>
+        {iconElement && iconPosition === "left" && iconElement}
+        {children}
+        {iconElement && iconPosition === "right" && iconElement}
+      </Link>
+    );
+  }
 
   return (
     <button
