@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 :root {
   --font-family: "Lato", sans-serif;
   --second-family: "Great Vibes", sans-serif;
@@ -26,7 +25,7 @@
   --white: #f2efe5;
 }
 
-@theme inline{
+@theme inline {
   --default-font-family: var(--font-family);
   --color-background: var(--with-taste-bg);
 
@@ -38,7 +37,15 @@
   --color-primaryActive: var(--with-taste-active-primary);
   --color-backgroundBg: var(--bg-2);
   --color-black: var(--with-taste-black);
-  --color-white: var(--white);  
-  --color-card: var(--with-taste-card);   
-  --color-dark-brown: var(--with-taste-dark-brown);                                                                                          
+  --color-white: var(--white);
+  --color-card: var(--with-taste-card);
+  --color-dark-brown: var(--with-taste-dark-brown);
+  --hero-gradient: var(--hero-gradient);
+
+  --gradient-image-overlay: linear-gradient(
+    180deg,
+    rgba(236, 233, 227, 0) 50%,
+    rgba(236, 233, 227, 0.913462) 94.23%,
+    #ece9e3 100%
+  );
 }

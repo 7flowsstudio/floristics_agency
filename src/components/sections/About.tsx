@@ -27,7 +27,7 @@ const About = () => {
             </Button>
           </div>
 
-          <div className="relative">
+          <div className="relative min-[1000px]:grid min-[1000px]:grid-cols-1">
             <div
               className="relative  w-full
   max-w-[337px]
@@ -46,7 +46,7 @@ const About = () => {
                 />
               </div>
             </div>
-            <div className="relative min-[1000px]:absolute min-[1000px]:top-[350px] min-[1000px]:left-[420px] w-full max-w-[337px] md:max-w-[628px] h-[213px] md:h-[396px] rounded-[16px] overflow-hidden md:col-span-2 mt-4 mx-auto">
+            <div className="relative min-[1000px]:-mt-[170px] min-[1000px]:ml-[420px] w-full max-w-[337px] md:max-w-[628px] h-[213px] md:h-[396px] rounded-[16px] overflow-hidden md:col-span-2 mt-4 mx-auto">
               <div className="w-full h-full relative z-10">
                 <Image
                   src="/img/about/aboutsec.webp"
