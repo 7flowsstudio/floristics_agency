@@ -1,6 +1,8 @@
 import Container from '../layout/Container';
 import Link from 'next/link';
 import Image from 'next/image';
+import SectionHeading from '../ui/SectionHeading';
+import SectionSubheading from '../ui/SectionSubheading';
 
 function Histories() {
   return (
@@ -8,14 +10,14 @@ function Histories() {
       <div className="flex flex-col md:flex-row items-stretch py-17 md:py-40">
         <div className="order-1 md:order-2 flex flex-col items-center justify-between">
           <div className="max-w-110">
-            <h2 className="text-[24px] md:text-[40px] text-dark-brown font-medium text-center ">
-              <span className="block md:hidden">Відгуки учнів та учениць</span>
-              <span className="hidden md:block">Історії учнів та учениць</span>
-            </h2>
-            <p className="text-center text-[18px] md:text-[22px] leading-6">
+            <SectionHeading
+              mobileText="Відгуки учнів та учениць"
+              desktopText="Історії учнів та учениць"
+            />
+            <SectionSubheading>
               Щирі враження тих, хто вже відкрив для себе творічсть у "With
               Taste"
-            </p>
+            </SectionSubheading>
           </div>
 
           <div className="hidden md:block px-6 md:px-50.5 py-10 bg-card rounded-tr-2xl rounded-br-2xl justify-center items-center">
