@@ -20,6 +20,8 @@ type SliderProps = {
   cardClassName?: string;
   containerClassName?: string;
   imageWrapperClassName?: string;
+  textClassName?: string;
+  linkClassName?: string;
 };
 
 const Slider: React.FC<SliderProps> = ({
@@ -30,6 +32,8 @@ const Slider: React.FC<SliderProps> = ({
   cardClassName = "",
   containerClassName = "",
   imageWrapperClassName = "",
+  textClassName = "",
+  linkClassName = "",
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const { scrollSmooth } = useSmoothScroll(containerRef, {
@@ -85,7 +89,7 @@ const Slider: React.FC<SliderProps> = ({
         {items.map((item) => (
           <div
             key={item.id}
-            className={clsx("flex-shrink-0 p-4 rounded-lg", cardClassName)}
+            className={clsx("flex-shrink-0 rounded-lg", cardClassName)}
           >
             {item.imageUrl && (
               <div
@@ -102,8 +106,16 @@ const Slider: React.FC<SliderProps> = ({
                 />
               </div>
             )}
-            {item.title && <p className="text-sm mb-2">{item.title}</p>}
-            {item.link && <p className="font-medium text-right">{item.link}</p>}
+            {item.title && (
+              <p className={(clsx("text-sm mb-2"), textClassName)}>
+                {item.title}
+              </p>
+            )}
+            {item.link && (
+              <p className={clsx("font-medium text-right", linkClassName)}>
+                {item.link}
+              </p>
+            )}
           </div>
         ))}
       </div>
@@ -115,8 +127,8 @@ const Slider: React.FC<SliderProps> = ({
             className={clsx(
               "block h-1 rounded transition-all",
               scrollIndex === index
-                ? "w-8 border-2 border-[#1C686D]"
-                : "w-4 border-2 border-[#9DC6C9]",
+                ? "w-8 border-3 border-[#1C686D]"
+                : "w-4 border-3 border-[#9DC6C9]",
             )}
           />
         ))}

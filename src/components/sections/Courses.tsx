@@ -19,14 +19,18 @@ const Courses = () => {
     <Container className="pt-[60px] lg:pt-[160px]">
       <div>
         <SectionHeading>Наші напрями</SectionHeading>
-        <SectionSubheading>Обери той, що надихає саме тебе</SectionSubheading>
+        <SectionSubheading className="pb-[32px]">
+          Обери той, що надихає саме тебе
+        </SectionSubheading>
       </div>
       <div className="md:hidden">
         <Slider
           items={items}
           containerClassName="gap-6"
-          cardClassName="min-w-[336px] p-4 rounded-lg"
-          imageWrapperClassName="h-[440px] mb-3 rounded"
+          cardClassName="min-w-[336px] h-[440px] rounded-lg gradient-image-overlay"
+          imageWrapperClassName="h-[440px] mb-3 rounded relative"
+          textClassName="w-full absolute text-center bottom-[50px] z-20"
+          linkClassName="absolute left-1/2 -translate-x-1/2 bottom-[20px] z-20"
           slidesToScroll={1}
           gap={16}
           duration={500}
@@ -35,9 +39,9 @@ const Courses = () => {
 
       <div className="hidden md:grid md:grid-cols-3 md:gap-8">
         {items.map((item) => (
-          <div key={item.id} className="">
+          <div key={item.id} className="relative">
             {item.imageUrl && (
-              <div className="w-full h-[440px] relative rounded-lg overflow-hidden">
+              <div className="w-full h-[440px] relative rounded-lg overflow-hidden gradient-image-overlay">
                 <Image
                   src={item.imageUrl}
                   alt={item.title || "image"}
@@ -46,8 +50,13 @@ const Courses = () => {
                 />
               </div>
             )}
-            <p className="p-4 text-center font-medium">{item.title}</p>
-            <Link href="" className="p-4 text-center font-medium">
+            <p className="w-full absolute text-center bottom-[50px] z-20">
+              {item.title}
+            </p>
+            <Link
+              href=""
+              className="absolute left-1/2 -translate-x-1/2 bottom-[20px] z-20"
+            >
               {item.link}
             </Link>
           </div>
