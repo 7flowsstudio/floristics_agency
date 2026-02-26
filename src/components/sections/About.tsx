@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Container from "../layout/Container";
 import Button from "../ui/Button";
+import SectionSubheading from "../ui/SectionSubheading";
+import SectionHeading from "../ui/SectionHeading";
 
 const About = () => {
   return (
@@ -8,17 +10,17 @@ const About = () => {
       <div className="">
         <div className="flex flex-col min-[1000px]:grid min-[1000px]:grid-cols-2 min-[1000px]:grid-rows-[auto_auto] min-[1000px]:gap-[125px]">
           <div className="flex flex-col justify-start md:row-start-1 md:col-start-2 gap-4">
-            <h2 className="text-[#2D1106] font-medium text-[24px] leading-[100%] tracking-[0.01em]">
+            <SectionHeading className="text-[#2D1106] font-medium text-[24px] leading-[100%] tracking-[0.01em]">
               Про студію “With taste”
-            </h2>
-            <p className="">
+            </SectionHeading>
+            <SectionSubheading className="">
               У студії «With Taste» ми поєднуємо квіти, мистецтво та натхнення.{" "}
               <br />
               Тут народжуються ідеї, оживають квіти та кожен знаходить свій шлях
               до творчості.
-            </p>
+            </SectionSubheading>
             <Button
-              className="w-full [@media(max-width:767px)]:hidden"
+              className="w-full [@media(max-width:999px)]:hidden"
               iconSrc="/arrow-right.svg"
               variant="outline"
               iconPosition="right"
@@ -60,7 +62,7 @@ const About = () => {
             </div>
           </div>
           <Button
-            className="w-full md:hidden"
+            className="w-full max-w-[336px] mx-auto mt-[32px] min-[1000px]:hidden"
             iconSrc="/arrow-right.svg"
             variant="outline"
             iconPosition="right"
