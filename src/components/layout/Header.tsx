@@ -5,6 +5,7 @@ import Container from './Container';
 import Logo from './Logo';
 import NavLink from '../navigation/NavLink';
 import { useMobileMenu } from '@/hooks/useMobileMenu';
+import { navigation } from '@/data/navigation';
 import HamburgerButton from '../ui/HamburgerButton';
 import MobileMenu from '../navigation/MobileMenu';
 
@@ -41,25 +42,15 @@ const Header = () => {
             </div>
 
             <nav className="flex flex-wrap justify-center xl:justify-start gap-1 md:gap-2 lg:gap-2">
-              <NavLink href="/about" className="px-2 md:px-3 lg:px-8.5">
-                Про мене
-              </NavLink>
-              <NavLink href="/courses" className="px-2 md:px-3 lg:px-8.5">
-                Курси
-              </NavLink>
-              <NavLink href="/history" className="px-2 md:px-3 lg:px-8.5">
-                {' '}
-                Iсторія
-              </NavLink>
-              <NavLink href="/reviews" className="px-2 md:px-3 lg:px-8.5">
-                Відгуки
-              </NavLink>
-              <NavLink href="/photos" className="px-2 md:px-3 lg:px-8.5">
-                Фото
-              </NavLink>
-              <NavLink href="/contacts" className="px-2 md:px-3 lg:px-8.5">
-                Контакти
-              </NavLink>
+              {navigation.map(item => (
+                <NavLink
+                  key={item.href}
+                  href={item.href}
+                  className="px-2 md:px-3 lg:px-8.5"
+                >
+                  {item.label}
+                </NavLink>
+              ))}
             </nav>
 
             <a
