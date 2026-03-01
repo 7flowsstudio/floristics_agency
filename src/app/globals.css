@@ -23,6 +23,9 @@
   --with-taste-dark-brown: #2d1106;
   --with-taste-active-primary: #115256;
   --white: #f2efe5;
+
+  border-radius: 8px;
+--background: linear-gradient(180deg, rgba(236, 233, 227, 0.00) 61.29%, rgba(236, 233, 227, 0.61) 69.48%, rgba(236, 233, 227, 0.80) 74.5%, rgba(236, 233, 227, 0.94) 84.55%, #ECE9E3 100%), url('/public/img/histories/yulia.png') lightgray -56.717px -75.882px / 123.816% 130.137% no-repeat;
 }
 
 @theme inline {
@@ -41,6 +44,7 @@
   --color-card: var(--with-taste-card);
   --color-dark-brown: var(--with-taste-dark-brown);
   --color-greyNormalActive: var(--foundation--grey-normal-active);
+  --color-cardDark: var(--with-taste-dark-card);
   --hero-gradient: var(--hero-gradient);
 
   --gradient-image-overlay: linear-gradient(

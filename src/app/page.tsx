@@ -1,7 +1,9 @@
 import About from '@/components/sections/About';
 import Courses from '@/components/sections/Courses';
 import Hero from '@/components/sections/Hero';
-import Histories from '@/components/sections/Histories';
+import Reviews from '@/components/sections/Reviews';
+import Form from '@/components/sections/Form';
+import TestimonialCard from '@/components/sections/TestimonialsSection';
 
 export default function Home() {
   return (
@@ -9,7 +11,8 @@ export default function Home() {
       <Hero />
       <About />
       <Courses />
-      <Histories />
+      <Reviews />
+      <Form />
     </>
   );
 }
