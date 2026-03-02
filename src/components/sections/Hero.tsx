@@ -14,7 +14,7 @@ const Hero = () => {
   md:bg-none
   [@media(max-width:767px)]:h-[90vh]
   w-full
-  pt-[40px] md:pt-[60px]
+  pt-[120px] md:pt-[140px] lg:pt-[160px]
   "
     >
       <Container>

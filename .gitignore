@@ -41,3 +41,7 @@ yarn-error.log*
 next-env.d.ts
 
 *.stackdump
+
+# skills.sh
+skills-lock.json
+.agents/

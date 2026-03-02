@@ -40,6 +40,8 @@
   --color-white: var(--white);
   --color-card: var(--with-taste-card);
   --color-dark-brown: var(--with-taste-dark-brown);
+  --color-greyNormalActive: var(--foundation--grey-normal-active);
+  --color-cardDark: var(--with-taste-dark-card);
   --hero-gradient: var(--hero-gradient);
 
   --gradient-image-overlay: linear-gradient(

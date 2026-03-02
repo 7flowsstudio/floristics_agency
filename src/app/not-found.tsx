@@ -7,7 +7,7 @@ export default function NotFound() {
     <div className="min-h-screen flex items-center justify-center">
       <Container>
         <div className="flex flex-col items-center gap-6">
-          <Logo variant="black" size="lg" />
+          <Logo variant="black" className='w-18 h-14.5 md:w-49 md:h-39.5' />
 
           <h1 className="text-4xl font-serif">404</h1>
 

@@ -1,9 +1,11 @@
 'use client';
 import { usePathname } from 'next/navigation';
+import { useEffect } from 'react';
 import Container from './Container';
 import Logo from './Logo';
 import NavLink from '../navigation/NavLink';
 import { useMobileMenu } from '@/hooks/useMobileMenu';
+import { navigation } from '@/data/navigation';
 import HamburgerButton from '../ui/HamburgerButton';
 import MobileMenu from '../navigation/MobileMenu';
 
@@ -11,26 +13,49 @@ const Header = () => {
   const pathname = usePathname();
   const isHome = pathname === '/';
 
+  const logoSize = 'w-[72px] h-[58px]';
+
   const { isOpen, toggle, close } = useMobileMenu();
+
+  useEffect(() => {
+    document.body.classList.toggle('overflow-hidden', isOpen);
+
+    return () => {
+      document.body.classList.remove('overflow-hidden');
+    };
+  }, [isOpen]);
+
   return (
     <>
-      <header className="w-full py-8.75 bg-background">
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 w-full md:py-6 lg:py-8.75 bg-background/95 backdrop-blur-sm transition-transform duration-300 ${
+          isOpen ? '-translate-y-full md:translate-y-0' : 'translate-y-0'
+        }`}
+      >
         <Container>
-          <div className="hidden md:flex items-center justify-between">
-            <Logo variant={isHome ? 'primary' : 'black'} size="sm" />
+          <div className="hidden md:flex flex-col items-center gap-4 lg:gap-6 xl:flex-row xl:justify-between xl:items-center">
+            <div className="flex justify-center xl:justify-start">
+              <Logo
+                variant={isHome ? 'primary' : 'black'}
+                className={logoSize}
+              />
+            </div>
 
-            <nav className="flex gap-2">
-              <NavLink href="/about">Про мене</NavLink>
-              <NavLink href="/courses">Курси</NavLink>
-              <NavLink href="/history"> Iсторія</NavLink>
-              <NavLink href="/reviews">Відгуки</NavLink>
-              <NavLink href="/photos">Фото</NavLink>
-              <NavLink href="/contacts">Контакти</NavLink>
+            <nav className="flex flex-wrap justify-center xl:justify-start gap-1 md:gap-2 lg:gap-2">
+              {navigation.map(item => (
+                <NavLink
+                  key={item.href}
+                  href={item.href}
+                  className="px-2 md:px-3 lg:px-8.5"
+                >
+                  {item.label}
+                </NavLink>
+              ))}
             </nav>
 
             <a
               href="tel:+380932451284"
-              className="text-black flex items-center gap-4"
+              className="text-black hidden xl:flex items-center gap-2 md:gap-3 lg:gap-4"
             >
               <svg
                 width="18"
@@ -48,7 +73,7 @@ const Header = () => {
             </a>
           </div>
 
-          <div className="flex md:hidden items-center justify-center relative pt-3 pb-10">
+          <div className="flex md:hidden items-center justify-between relative py-3">
             {!isHome && (
               <button
                 onClick={() => window.history.back()}
@@ -74,8 +99,7 @@ const Header = () => {
 
             <Logo
               variant={isHome ? 'brown' : 'black'}
-              size="sm"
-              className="absolute left-1/2 transform -translate-x-1/2"
+              className={`${logoSize} absolute left-1/2 -translate-x-1/2`}
             />
             <HamburgerButton
               isOpen={isOpen}
