@@ -11,7 +11,7 @@ export default function SectionSubheading({
   className,
   ...props
 }: SectionSubheadingProps) {
-  const baseClasses = "text-center text-[18px] md:text-[22px] leading-6";
+  const baseClasses = "text-center text-[18px] md:text-[20px] lg:text-[22px] leading-6";
 
   return (
     <p
