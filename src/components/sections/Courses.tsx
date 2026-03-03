@@ -7,6 +7,7 @@ import Link from "next/link";
 import Container from "../layout/Container";
 import SectionHeading from "../ui/SectionHeading";
 import SectionSubheading from "../ui/SectionSubheading";
+import Button from "../ui/Button";
 
 const Courses = () => {
   const items: SliderItem[] = courses.map((c) => ({
@@ -38,7 +39,7 @@ const Courses = () => {
       </div>
 
       <div className="hidden md:grid md:grid-cols-3 md:gap-8">
-        {items.map((item) => (
+        {items.slice(-3).map((item) => (
           <div key={item.id} className="relative">
             {item.imageUrl && (
               <div className="w-full h-[440px] relative rounded-lg overflow-hidden gradient-image-overlay">
@@ -61,6 +62,11 @@ const Courses = () => {
             </Link>
           </div>
         ))}
+      </div>
+      <div className="hidden md:flex mx-auto mt-10 max-w-[412px]">
+        <Button className="w-full" href="/courses" variant="outline">
+          Детальніше про курси
+        </Button>
       </div>
     </Container>
   );
