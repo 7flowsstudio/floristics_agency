@@ -2,7 +2,7 @@ import Container from '../layout/Container';
 import Image from 'next/image';
 import SectionHeading from '../ui/SectionHeading';
 import SectionSubheading from '../ui/SectionSubheading';
-import NavLink from '../ui/NavLink';
+import Button from '../ui/Button';
 
 function Reviews() {
   const imageSrc = '/img/reviews/yulia.png';
@@ -44,12 +44,12 @@ function Reviews() {
               </div>
             </div>
             <div className="hidden md:block">
-              <NavLink
+              <Button
                 {...navLinkProps}
                 className="w-fit self-center px-23.25 py-6 text-[20px]"
               >
                 Дивитися усі відгуки
-              </NavLink>
+              </Button>
             </div>
           </div>
 
@@ -84,9 +84,9 @@ function Reviews() {
           </div>
         </div>
         <Container>
-          <NavLink {...navLinkProps} className="w-full mt-8">
+          <Button {...navLinkProps} className="w-full mt-8">
             Дивитися усі відгуки
-          </NavLink>
+          </Button>
         </Container>
       </div>
     </>
