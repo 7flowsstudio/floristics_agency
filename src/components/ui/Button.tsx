@@ -32,13 +32,7 @@ export default function Button({
   };
   const responsiveHeight = "h-[52px] md:h-[72px]";
   const iconElement = iconSrc ? (
-    <Image
-      src={iconSrc}
-      alt=""
-      width={20}
-      height={20}
-      unoptimized // обов'язково для svg з public
-    />
+    <Image src={iconSrc} alt="" width={20} height={20} unoptimized />
   ) : null;
   const classes = clsx(base, variants[variant], responsiveHeight, className);
   if (href) {
