@@ -2,7 +2,7 @@ import Container from '../layout/Container';
 import Image from 'next/image';
 import SectionHeading from '../ui/SectionHeading';
 import SectionSubheading from '../ui/SectionSubheading';
-import NavLink from '../ui/NavLink';
+import Button from '../ui/Button';
 
 function Reviews() {
   const imageSrc = '/img/reviews/yulia.png';
@@ -24,48 +24,14 @@ function Reviews() {
   };
   return (
     <>
-      <Container>
-        <div className="flex flex-col md:flex-row items-stretch py-17 pb-6 md:py-40">
-          <div className="order-1 md:order-2 flex flex-col items-center md:justify-between">
-            <div className="max-w-110">
-              <SectionHeading
-                mobileText="Відгуки учнів та учениць"
-                desktopText="Історії учнів та учениць"
-              />
-              <SectionSubheading>
-                Щирі враження тих, хто вже відкрив для себе творічсть у "With
-                Taste"
-              </SectionSubheading>
-            </div>
-
-            <div className="hidden md:block px-6 md:px-50.5 py-10 bg-card rounded-tr-2xl rounded-br-2xl justify-center items-center">
-              <div className="hidden md:block md:w-115 text-center justify-start text-black md:text-2xl font-normal font-primary italic tracking-[0.24px] leading-7">
-                {testimonial}
-              </div>
-            </div>
-            <div className="hidden md:block">
-              <NavLink
-                {...navLinkProps}
-                className="w-fit self-center px-23.25 py-6 text-[20px]"
-              >
-                Дивитися усі відгуки
-              </NavLink>
-            </div>
-          </div>
-
-          <div className="order-2 md:order-1 hidden md:block w-full">
-            <Image
-              src={imageSrc}
-              alt={imageAlt}
-              width={412}
-              height={555}
-              className="rounded-lg object-cover"
-            />
-          </div>
-        </div>
-      </Container>
-      <div className="md:hidden">
-        <div className=" bg-card max-h-133.25 px-5 pt-8 pb-12 relative rounded-lg overflow-hidden">
+      <div className="lg:hidden">
+        <Container className="pt-15 pb-6">
+          <SectionHeading>Відгуки учнів та учениць</SectionHeading>
+          <SectionSubheading>
+            Щирі враження тих, хто вже відкрив для себе творічсть у "With Taste"
+          </SectionSubheading>
+        </Container>
+        <div className=" bg-card max-h-133.25 max-w-131.25 mx-auto px-5 pt-8 pb-12 relative rounded-lg overflow-hidden">
           <Image
             className="max-h-113.25 w-full object-cover rounded-lg"
             width={336}
@@ -84,11 +50,46 @@ function Reviews() {
           </div>
         </div>
         <Container>
-          <NavLink {...navLinkProps} className="w-full mt-8">
-            Дивитися усі відгуки
-          </NavLink>
+          <div className="flex justify-center mt-10">
+            <Button {...navLinkProps} className="w-full max-w-131.25">
+              Дивитися усі відгуки
+            </Button>
+          </div>
         </Container>
       </div>
+
+      <Container className="hidden lg:flex py-40">
+        <Image
+          src={imageSrc}
+          alt={imageAlt}
+          width={412}
+          height={555}
+          className="rounded-lg object-cover"
+        />
+
+        <div className="flex flex-col flex-10/12 justify-between items-center">
+          <div className="max-w-110">
+            <SectionHeading>Історії учнів та учениць</SectionHeading>
+            <SectionSubheading>
+              Щирі враження тих, хто вже відкрив для себе творічсть у "With
+              Taste"
+            </SectionSubheading>
+          </div>
+
+          <div className="bg-card w-full rounded-tr-2xl rounded-br-2xl">
+            <div className="py-10 max-w-115 mx-auto text-center text-black text-[24px] font-normal font-primary italic tracking-[0.24px] leading-7">
+              {testimonial}
+            </div>
+          </div>
+
+          <Button
+            {...navLinkProps}
+            className="w-fit self-center px-23.25 py-6 text-[20px]"
+          >
+            Дивитися усі відгуки
+          </Button>
+        </div>
+      </Container>
     </>
   );
 }

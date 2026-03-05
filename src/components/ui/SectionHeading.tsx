@@ -19,7 +19,7 @@ export default function SectionHeading({
   ...props
 }: SectionHeadingProps) {
   const baseClasses =
-    'text-[24px] md:text-[40px] text-dark-brown font-medium text-center';
+    'text-[24px] md:text-[32px] lg:text-[40px] text-dark-brown font-medium text-center';
 
   const content =
     mobileText && desktopText ? (
