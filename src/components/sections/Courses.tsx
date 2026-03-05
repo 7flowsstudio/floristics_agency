@@ -14,6 +14,7 @@ const Courses = () => {
     id: c.id.toString(),
     title: c.title,
     link: c.link,
+    url: c.url,
     imageUrl: c.img,
   }));
   return (
@@ -55,7 +56,7 @@ const Courses = () => {
               {item.title}
             </p>
             <Link
-              href=""
+              href={item.url}
               className="absolute left-1/2 -translate-x-1/2 bottom-[20px] z-20"
             >
               {item.link}
