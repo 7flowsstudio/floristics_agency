@@ -43,6 +43,7 @@
   --color-greyNormalActive: var(--foundation--grey-normal-active);
   --color-cardDark: var(--with-taste-dark-card);
   --hero-gradient: var(--hero-gradient);
+  --with-taste-bg: var(--with-taste-bg);
 
   --gradient-image-overlay: linear-gradient(
     180deg,
