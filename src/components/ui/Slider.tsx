@@ -4,11 +4,13 @@ import Image from "next/image";
 
 import clsx from "clsx";
 import { useSmoothScroll } from "@/utils/useSmoothScroll/useSmoothScroll";
+import Link from "next/link";
 
 export type SliderItem = {
   id: string;
   title?: string;
   link?: string;
+  url: string;
   imageUrl?: string;
 };
 
@@ -112,9 +114,12 @@ const Slider: React.FC<SliderProps> = ({
               </p>
             )}
             {item.link && (
-              <p className={clsx("font-medium text-right", linkClassName)}>
+              <Link
+                href={item.url}
+                className={clsx("font-medium text-right", linkClassName)}
+              >
                 {item.link}
-              </p>
+              </Link>
             )}
           </div>
         ))}
