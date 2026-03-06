@@ -8,7 +8,7 @@ const About = () => {
   return (
     <Container className="pt-[105px] lg:pt-[160px]">
       <div className="pt-20 md:pt-0">
-        <div className="flex flex-col min-[1000px]:grid min-[1000px]:grid-cols-2 min-[1000px]:grid-rows-[auto_auto] min-[1000px]:gap-[125px]">
+        <div className="flex flex-col min-[1000px]:grid min-[1000px]:grid-cols-2 min-[1000px]:grid-rows-[auto_auto] min-[1000px]:gap-x-[125px]">
           <div className="flex flex-col justify-start md:row-start-1 md:col-start-2">
             <SectionHeading className="text-[#2D1106] font-medium text-[24px] leading-[100%] tracking-[0.01em] pb-[8px] min-[1000px]:pb-[16px]">
               Про студію “With taste”
