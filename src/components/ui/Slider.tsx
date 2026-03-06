@@ -1,42 +1,25 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-
 import clsx from "clsx";
 import { useSmoothScroll } from "@/utils/useSmoothScroll/useSmoothScroll";
-import Link from "next/link";
 
-export type SliderItem = {
-  id: string;
-  title?: string;
-  link?: string;
-  url: string;
-  imageUrl?: string;
-};
-
-type SliderProps = {
-  items: SliderItem[];
+type SliderProps<T> = {
+  items: T[];
+  renderCard: (item: T, index: number) => React.ReactNode; // універсальний рендер картки
   slidesToScroll?: number;
   gap?: number;
   duration?: number;
-  cardClassName?: string;
   containerClassName?: string;
-  imageWrapperClassName?: string;
-  textClassName?: string;
-  linkClassName?: string;
 };
 
-const Slider: React.FC<SliderProps> = ({
+function Slider<T>({
   items,
+  renderCard,
   slidesToScroll = 1,
   gap = 16,
   duration = 500,
-  cardClassName = "",
   containerClassName = "",
-  imageWrapperClassName = "",
-  textClassName = "",
-  linkClassName = "",
-}) => {
+}: SliderProps<T>) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const { scrollSmooth } = useSmoothScroll(containerRef, {
     slidesToScroll,
@@ -53,9 +36,7 @@ const Slider: React.FC<SliderProps> = ({
     const containerWidth = container.clientWidth;
 
     const visibleSlides = Math.floor(containerWidth / (slideWidth + gap));
-
     const index = Math.round(container.scrollLeft / (slideWidth + gap));
-
     const maxIndex = items.length - visibleSlides;
     setScrollIndex(Math.min(index, maxIndex >= 0 ? maxIndex : 0));
   };
@@ -85,46 +66,15 @@ const Slider: React.FC<SliderProps> = ({
         tabIndex={0}
         className={clsx(
           "flex overflow-x-auto scrollbar-none transition-all duration-500 focus:outline-none",
+
           containerClassName,
         )}
+        style={{ gap: gap }}
       >
-        {items.map((item) => (
-          <div
-            key={item.id}
-            className={clsx("flex-shrink-0 rounded-lg", cardClassName)}
-          >
-            {item.imageUrl && (
-              <div
-                className={clsx(
-                  "w-full relative overflow-hidden",
-                  imageWrapperClassName,
-                )}
-              >
-                <Image
-                  src={item.imageUrl}
-                  alt={item.title || "image"}
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-            )}
-            {item.title && (
-              <p className={(clsx("text-sm mb-2"), textClassName)}>
-                {item.title}
-              </p>
-            )}
-            {item.link && (
-              <Link
-                href={item.url}
-                className={clsx("font-medium text-right", linkClassName)}
-              >
-                {item.link}
-              </Link>
-            )}
-          </div>
-        ))}
+        {items.map((item, index) => renderCard(item, index))}
       </div>
 
+      {/* пагінація */}
       <div className="flex gap-2 mt-4 justify-center">
         {items.map((_, index) => (
           <span
@@ -140,6 +90,6 @@ const Slider: React.FC<SliderProps> = ({
       </div>
     </div>
   );
-};
+}
 
 export default Slider;

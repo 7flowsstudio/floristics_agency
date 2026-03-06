@@ -23,7 +23,7 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const base =
-    "inline-flex items-center justify-center gap-3 rounded-[32px] md:rounded-[40px] transition duration-300 text-xl cursor-poiner";
+    "flex items-center justify-center gap-3 rounded-[32px] md:rounded-[40px] transition duration-300 text-xl cursor-poiner";
 
   const variants = {
     primary: "bg-[#1C686D] text-white hover:bg-[#115256] cursor-pointer",

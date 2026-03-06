@@ -12,7 +12,7 @@ const Hero = () => {
   bg-center
   bg-cover
   md:bg-none
-  md:max-h-[834px]
+  md:h-[834px]
   [@media(max-width:767px)]:h-[90vh]
   w-full
   pt-[120px] md:pt-[140px] lg:pt-[160px]

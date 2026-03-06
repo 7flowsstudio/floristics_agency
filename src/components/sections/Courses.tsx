@@ -1,21 +1,33 @@
 "use client";
 
 import { courses } from "@/data/courses";
-import Slider, { SliderItem } from "../ui/Slider";
 import Image from "next/image";
 import Link from "next/link";
 import Container from "../layout/Container";
 import SectionHeading from "../ui/SectionHeading";
 import SectionSubheading from "../ui/SectionSubheading";
 import Button from "../ui/Button";
+import { BestsellerBadge } from "../ui/BestsellerBadge";
+import clsx from "clsx";
+import Slider from "../ui/Slider";
+
+export type CourseSliderItem = {
+  id: string;
+  title: string;
+  link?: string;
+  url: string;
+  imageUrl?: string;
+  isBestseller?: boolean;
+};
 
 const Courses = () => {
-  const items: SliderItem[] = courses.map((c) => ({
+  const items: CourseSliderItem[] = courses.map((c, index) => ({
     id: c.id.toString(),
     title: c.title,
     link: c.link,
     url: c.url,
     imageUrl: c.img,
+    isBestseller: index === 0,
   }));
   return (
     <Container className="pt-[60px] lg:pt-[160px]">
@@ -26,16 +38,47 @@ const Courses = () => {
         </SectionSubheading>
       </div>
       <div className="md:hidden">
-        <Slider
+        <Slider<CourseSliderItem>
           items={items}
-          containerClassName="gap-6"
-          cardClassName="min-w-[336px] h-[440px] rounded-lg gradient-image-overlay"
-          imageWrapperClassName="h-[440px] mb-3 rounded relative"
-          textClassName="w-full absolute text-center bottom-[50px] z-20"
-          linkClassName="absolute left-1/2 -translate-x-1/2 bottom-[20px] z-20"
-          slidesToScroll={1}
           gap={16}
-          duration={500}
+          renderCard={(item, index) => (
+            <div
+              key={item.id}
+              className={clsx(
+                "flex-shrink-0 rounded-lg overflow-hidden relative",
+                "min-w-[320px]  [@media(max-width:374px)]:min-w-[280px] h-[440px] gradient-image-overlay",
+                index === 0 && "border-[1.5px] border-[#1C686D]",
+              )}
+            >
+              {item.imageUrl && (
+                <div className="w-full h-[440px] relative rounded mb-3">
+                  <Image
+                    src={item.imageUrl}
+                    alt={item.title || "image"}
+                    fill
+                    style={{ objectFit: "cover" }}
+                  />
+                </div>
+              )}
+
+              {item.isBestseller && <BestsellerBadge />}
+
+              {item.title && (
+                <p className="w-full absolute text-center bottom-[50px] z-20 font-medium text-xl">
+                  {item.title}
+                </p>
+              )}
+
+              {item.link && (
+                <Link
+                  href={item.url}
+                  className="absolute left-1/2 -translate-x-1/2 bottom-[20px] z-20 underline underline-offset-4"
+                >
+                  {item.link}
+                </Link>
+              )}
+            </div>
+          )}
         />
       </div>
 
