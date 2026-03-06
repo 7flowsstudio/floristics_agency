@@ -1,5 +1,5 @@
 'use client';
-
+import { useEffect, useRef } from 'react';
 import { useActionState } from 'react';
 import { sendCourseForm } from '@/lib/actions/send-form-actions';
 
@@ -8,14 +8,26 @@ const initialState = {
   errors: {},
 };
 
-export default function CourseForm() {
+interface CourseFormProps {
+  onSuccess: () => void;
+}
+
+export default function CourseForm({ onSuccess }: CourseFormProps) {
   const [state, formAction, pending] = useActionState(
     sendCourseForm,
     initialState,
   );
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (state.success) {
+      formRef.current?.reset();
+      onSuccess();
+    }
+  }, [state.success]);
 
   return (
-    <form action={formAction} className="flex flex-col gap-6">
+    <form action={formAction} ref={formRef} className="flex flex-col gap-6">
       <input name="name" placeholder="Ім'я" />
       {state.errors?.name && <p>{state.errors.name}</p>}
 
