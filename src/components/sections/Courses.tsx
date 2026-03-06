@@ -52,12 +52,12 @@ const Courses = () => {
                 />
               </div>
             )}
-            <p className="w-full absolute text-center bottom-[50px] z-20">
+            <p className="w-full absolute text-center bottom-[50px] z-20 font-medium text-xl">
               {item.title}
             </p>
             <Link
               href={item.url}
-              className="absolute left-1/2 -translate-x-1/2 bottom-[20px] z-20"
+              className="absolute left-1/2 -translate-x-1/2 bottom-[20px] z-20 underline underline-offset-4"
             >
               {item.link}
             </Link>
