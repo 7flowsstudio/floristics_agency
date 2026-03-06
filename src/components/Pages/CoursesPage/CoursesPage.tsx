@@ -1,3 +1,4 @@
+"use client";
 import Container from "@/components/layout/Container";
 import { BestsellerBadge } from "@/components/ui/BestsellerBadge";
 import Button from "@/components/ui/Button";
@@ -7,6 +8,7 @@ import SectionSubheading from "@/components/ui/SectionSubheading";
 import { courses } from "@/data/courses";
 import Image from "next/image";
 import Link from "next/link";
+import { useRef } from "react";
 
 const CoursesPage = () => {
   const items = courses.map((c) => ({
@@ -16,6 +18,19 @@ const CoursesPage = () => {
     url: c.url,
     imageUrl: c.img,
   }));
+  const coursesRef = useRef<HTMLDivElement | null>(null);
+
+  const scrollToCourses = () => {
+    if (!coursesRef.current) return;
+    const offset = 20;
+    const top =
+      coursesRef.current.getBoundingClientRect().top + window.scrollY - offset;
+
+    window.scrollTo({
+      top,
+      behavior: "smooth",
+    });
+  };
   return (
     <div>
       <div
@@ -42,6 +57,7 @@ const CoursesPage = () => {
             </SectionSubheading>
           </div>
           <Button
+            onClick={scrollToCourses}
             className="w-[336px] mx-auto md:hidden [@media(max-width:360px)]:w-[310px]"
             iconSrc="/arrow-down.svg"
             variant="outline"
@@ -50,6 +66,7 @@ const CoursesPage = () => {
             Знайди саме свій
           </Button>
           <Button
+            onClick={scrollToCourses}
             className="w-[412px] [@media(max-width:768px)]:hidden mx-auto mt-[65px]"
             iconSrc="/arrow-down-wh.svg"
             variant="primary"
@@ -59,7 +76,10 @@ const CoursesPage = () => {
           </Button>
         </div>
       </div>
-      <Container className="bg-[var(--with-taste-bg)] pt-[60px] pb-[60px]">
+      <Container
+        ref={coursesRef}
+        className="bg-[var(--with-taste-bg)] pt-[60px] pb-[60px]"
+      >
         <SectionHeading className="pb-[8px] md:pb-[16px]">
           Наші курси
         </SectionHeading>
