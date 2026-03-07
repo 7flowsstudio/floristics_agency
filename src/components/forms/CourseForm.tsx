@@ -2,6 +2,10 @@
 import { useEffect, useRef } from 'react';
 import { useActionState } from 'react';
 import { sendCourseForm } from '@/lib/actions/send-form-actions';
+import { FormInput } from '../ui/form/FormInput';
+import { FormSelect } from '../ui/form/FormSelect';
+import { FormTextarea } from '../ui/form/FormTextarea';
+import Button from '../ui/Button';
 
 const initialState = {
   success: false,
@@ -27,30 +31,35 @@ export default function CourseForm({ onSuccess }: CourseFormProps) {
   }, [state.success]);
 
   return (
-    <form action={formAction} ref={formRef} className="flex flex-col gap-6">
-      <input name="name" placeholder="Ім'я" />
-      {state.errors?.name && <p>{state.errors.name}</p>}
+    <form action={formAction} ref={formRef}>
+      <div className="bg-card rounded-2xl py-8.75 px-[15px] flex flex-col gap-6">
+        {/* <FormInput name="name" placeholder="Ім'я" />
+        {state.errors?.name && <p>{state.errors.name}</p>} */}
 
-      <input name="surname" placeholder="Прізвище" />
+        <FormInput name="name" placeholder="Ім'я" error={state.errors?.name} />
 
-      <input name="phone" placeholder="Телефон (+38)" />
-      {state.errors?.phone && <p>{state.errors.phone}</p>}
+        <FormInput name="surname" placeholder="Прізвище" />
 
-      <select name="course" aria-label="Бажаний курс">
-        <option value="">Бажаний курс</option>
-        <option value="my-work-my-dream">Моя робота — моя мрія</option>
-        <option value="food-floristry">Food-флористика</option>
-        <option value="floristry">Флористика</option>
-        <option value="business-management">Ведення бізнесу</option>
-      </select>
+        <FormInput
+          name="phone"
+          placeholder="Телефон"
+          error={state.errors?.phone}
+        />
 
-      <textarea name="message" placeholder="Питання"></textarea>
+         <select name="course" aria-label="Бажаний курс">
+          <option value="">Бажаний курс</option>
+          <option value="my-work-my-dream">Моя робота — моя мрія</option>
+          <option value="food-floristry">Food-флористика</option>
+          <option value="floristry">Флористика</option>
+          <option value="business-management">Ведення бізнесу</option>
+        </select> 
+        {/* <FormSelect name="course" options={courses} /> */}
+        <FormTextarea name="message" placeholder="Маєш конкретні питання? (необов’язково)" />
+      </div>
 
-      <button disabled={pending}>
+      <Button disabled={pending} className='w-full mt-8 mb-20'>
         {pending ? 'Відправка...' : 'Хочу творити разом'}
-      </button>
-
-      {state.success && <p>Дякуємо! Ми зв'яжемось з вами.</p>}
+      </Button>
     </form>
   );
 }
