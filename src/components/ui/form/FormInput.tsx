@@ -1,3 +1,8 @@
+'use client';
+
+import clsx from 'clsx';
+import FormFieldError from './FormFieldError';
+
 interface FormInputProps {
   name: string;
   type?: string;
@@ -17,13 +22,16 @@ export const FormInput: React.FC<FormInputProps> = ({
         name={name}
         type={type}
         placeholder={placeholder}
-        className="py-3 px-5 bg-cardDark rounded-lg"
+        className={clsx(
+          'py-3 px-5 rounded-lg bg-cardDark outline-none border border-transparent transition-colors',
+          'placeholder-greyNormalActive',
+          'focus:border-secondary',
+          'not-placeholder-shown:border-primary',
+          error && 'border-error',
+        )}
       />
-      {error && (
-        <span className="text-red-700 text-xs mt-1 text-right">
-          {error}
-        </span>
-      )}
+
+      <FormFieldError error={error} />
     </div>
   );
 };

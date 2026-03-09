@@ -1,17 +1,12 @@
-import React from 'react';
-
 interface FormFieldErrorProps {
   error?: string;
-  touched?: boolean;
 }
 
-const FormFieldError: React.FC<FormFieldErrorProps> = ({ error, touched }) => {
-  if (!error || !touched) return null;
+const FormFieldError: React.FC<FormFieldErrorProps> = ({ error }) => {
+  if (!error) return null;
 
   return (
-    <span className="text-red-500 text-sm mt-1">
-      {error}
-    </span>
+    <span className="text-error text-xs mt-1 text-right w-full">{error}</span>
   );
 };
 

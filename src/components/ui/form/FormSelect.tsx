@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import FormFieldError from './FormFieldError';
+import Image from 'next/image';
 
 interface Option {
   value: string;
@@ -30,10 +31,12 @@ export const FormSelect: React.FC<FormSelectProps> = ({
   const [isOpen, setIsOpen] = useState(false);
   const selectRef = useRef<HTMLDivElement>(null);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (selectRef.current && !selectRef.current.contains(event.target as Node)) {
+      if (
+        selectRef.current &&
+        !selectRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
         onBlur();
       }
@@ -45,7 +48,6 @@ export const FormSelect: React.FC<FormSelectProps> = ({
     };
   }, [onBlur]);
 
-  // Close dropdown on ESC key
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -76,29 +78,31 @@ export const FormSelect: React.FC<FormSelectProps> = ({
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="w-full py-3 px-8 bg-cardDark rounded-lg text-left flex justify-between items-center"
+          className="w-full py-3 px-5 bg-cardDark rounded-lg text-left flex justify-between items-center cursor-pointer"
         >
-          <span className={selectedOption ? '' : 'text-gray-400'}>
+          <span className={selectedOption ? '' : 'text-greyNormalActive'}>
             {selectedOption ? selectedOption.label : placeholder}
           </span>
-          <svg
-            className={`w-5 h-5 transition-transform ${isOpen ? 'rotate-180' : ''}`}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
+          <Image
+            width={8}
+            height={8}
+            src="/arrow-dropdown.svg"
+            alt="dropdown arrow"
+            className={`w-5 h-5 transition-transform duration-200 rotate-180 ${isOpen ? 'rotate-360' : ''}`}
+          />
         </button>
 
         {isOpen && (
-          <div className="absolute z-10 w-full mt-1 bg-cardDark rounded-lg shadow-lg max-h-60 overflow-auto">
-            {options.map((option) => (
+          <div className="absolute z-10 w-full mt-1 bg-cardDark rounded-lg shadow-lg max-h-60 overflow-auto border-b border-red">
+            {options.map((option, index) => (
               <button
                 key={option.value}
                 type="button"
                 onClick={() => handleSelect(option.value)}
-                className="w-full px-8 py-3 text-left hover:bg-gray-700 first:rounded-t-lg last:rounded-b-lg"
+                className={`w-full px-5 py-3 text-left bg-cardDark text-black cursor-pointer 
+      hover:bg-greyNormalActive transition-colors ${
+        index !== options.length - 1 ? 'border-b border-orange-950/50' : ''
+      }`}
               >
                 {option.label}
               </button>
@@ -106,7 +110,7 @@ export const FormSelect: React.FC<FormSelectProps> = ({
           </div>
         )}
       </div>
-      <FormFieldError error={error} touched={touched} />
+      <FormFieldError error={error} />
     </div>
   );
 };

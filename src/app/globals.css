@@ -43,14 +43,13 @@
   --color-greyNormalActive: var(--foundation--grey-normal-active);
   --color-cardDark: var(--with-taste-dark-card);
   --hero-gradient: var(--hero-gradient);
-  --with-taste-bg: var(--with-taste-bg);
-
   --gradient-image-overlay: linear-gradient(
     180deg,
     rgba(236, 233, 227, 0) 50%,
     rgba(236, 233, 227, 0.913462) 94.23%,
     #ece9e3 100%
   );
+  --color-error: #CB0205;
 }
 
 .gradient-image-overlay {

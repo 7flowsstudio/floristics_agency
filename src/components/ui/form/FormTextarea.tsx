@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+import FormFieldError from './FormFieldError';
 interface FormTextareaProps {
   name: string;
   placeholder?: string;
@@ -14,14 +16,16 @@ export const FormTextarea: React.FC<FormTextareaProps> = ({
       <textarea
         name={name}
         placeholder={placeholder}
-        className="py-3 px-5 bg-cardDark rounded-lg resize-none"
+        className={clsx(
+          'py-3 px-5 rounded-lg bg-cardDark outline-none border border-transparent transition-colors',
+          'placeholder-greyNormalActive',
+          'focus:border-secondary',
+          'not-placeholder-shown:border-primary',
+          error && 'border-error',
+        )}
         rows={3}
       />
-      {error && (
-        <span className="text-red-700 text-xs mt-1">
-          {error}
-        </span>
-      )}
+      {error && <FormFieldError error={error} />}
     </div>
   );
 };

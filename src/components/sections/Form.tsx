@@ -23,11 +23,9 @@ function Form() {
   };
 
   return (
-    <Container>
-      <SectionHeading className="pt-20.25 pb-2">
-        Готові творити з нами?
-      </SectionHeading>
-      <SectionSubheading className="pb-6">
+    <Container className="mt-20.25 lg:mt-40">
+      <SectionHeading className="pb-2">Готові творити з нами?</SectionHeading>
+      <SectionSubheading>
         Залиш заявку, і ми зв'яжемось, щоб забронювати для тебе місце на курсі
       </SectionSubheading>
       <CourseForm onSuccess={() => setIsOpen(true)} />

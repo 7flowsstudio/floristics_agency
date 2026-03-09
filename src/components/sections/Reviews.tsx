@@ -58,7 +58,7 @@ function Reviews() {
         </Container>
       </div>
 
-      <Container className="hidden lg:flex py-40">
+      <Container className="hidden lg:flex pt-40">
         <Image
           src={imageSrc}
           alt={imageAlt}
