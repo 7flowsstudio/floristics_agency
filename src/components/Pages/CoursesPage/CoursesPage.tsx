@@ -114,9 +114,25 @@ const CoursesPage = () => {
                 className="absolute left-1/2 -translate-x-1/2 bottom-[20px] z-20 underline underline-offset-4"
               >
                 {item.link}
+                {/* <Image
+                  src="/arrow-down.svg"
+                  alt=""
+                  width={20}
+                  height={20}
+                  unoptimized
+                /> */}
               </Link>
             </div>
           ))}
+        </div>
+        <div className="md:hidden">
+          <p className="text-center pt-[40px] pb-[40px]">
+            Оберіть свій курс або зв’яжіться з нами для більш детальної
+            інформації
+          </p>
+          <Button className="w-full" variant="primary">
+            Зв’язатися
+          </Button>
         </div>
       </Container>
     </div>

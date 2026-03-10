@@ -37,7 +37,7 @@ const Courses = () => {
           Обери той, що надихає саме тебе
         </SectionSubheading>
       </div>
-      <div className="md:hidden">
+      <div className="[@media(min-width:944px)]:hidden">
         <Slider<CourseSliderItem>
           items={items}
           gap={16}
@@ -82,7 +82,7 @@ const Courses = () => {
         />
       </div>
 
-      <div className="hidden md:grid md:grid-cols-3 md:gap-8">
+      <div className="hidden [@media(min-width:944px)]:grid md:grid-cols-3 md:gap-8">
         {items.slice(-3).map((item) => (
           <div key={item.id} className="relative">
             {item.imageUrl && (

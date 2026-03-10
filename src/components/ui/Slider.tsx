@@ -10,6 +10,7 @@ type SliderProps<T> = {
   gap?: number;
   duration?: number;
   containerClassName?: string;
+  paginationClassName?: string;
 };
 
 function Slider<T>({
@@ -19,6 +20,7 @@ function Slider<T>({
   gap = 16,
   duration = 500,
   containerClassName = "",
+  paginationClassName = "",
 }: SliderProps<T>) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const { scrollSmooth } = useSmoothScroll(containerRef, {
@@ -28,25 +30,42 @@ function Slider<T>({
   });
 
   const [scrollIndex, setScrollIndex] = useState(0);
+  const [pages, setPages] = useState(1);
 
-  const handleScroll = () => {
+  // Обчислення кількості сторінок
+  const updatePages = () => {
     if (!containerRef.current) return;
     const container = containerRef.current;
     const slideWidth = container.firstElementChild?.clientWidth || 1;
     const containerWidth = container.clientWidth;
-
     const visibleSlides = Math.floor(containerWidth / (slideWidth + gap));
-    const index = Math.round(container.scrollLeft / (slideWidth + gap));
-    const maxIndex = items.length - visibleSlides;
-    setScrollIndex(Math.min(index, maxIndex >= 0 ? maxIndex : 0));
+    setPages(Math.max(items.length - visibleSlides + 1, 1));
   };
 
+  // Слідкуємо за скролом
+  const handleScroll = () => {
+    if (!containerRef.current) return;
+    const container = containerRef.current;
+    const slideWidth = container.firstElementChild?.clientWidth || 1;
+    const index = Math.round(container.scrollLeft / (slideWidth + gap));
+    setScrollIndex(index);
+  };
+
+  // Ініціалізація і resize
   useEffect(() => {
+    updatePages();
+    handleScroll(); // оновлюємо scrollIndex при першому рендері
+
+    window.addEventListener("resize", updatePages);
     const container = containerRef.current;
     if (!container) return;
     container.addEventListener("scroll", handleScroll, { passive: true });
-    return () => container.removeEventListener("scroll", handleScroll);
-  }, []);
+
+    return () => {
+      window.removeEventListener("resize", updatePages);
+      container.removeEventListener("scroll", handleScroll);
+    };
+  }, [items.length, gap]);
 
   // клавіші ← → для скролу
   useEffect(() => {
@@ -66,17 +85,18 @@ function Slider<T>({
         tabIndex={0}
         className={clsx(
           "flex overflow-x-auto scrollbar-none transition-all duration-500 focus:outline-none",
-
           containerClassName,
         )}
-        style={{ gap: gap }}
+        style={{ gap }}
       >
         {items.map((item, index) => renderCard(item, index))}
       </div>
 
       {/* пагінація */}
-      <div className="flex gap-2 mt-4 justify-center">
-        {items.map((_, index) => (
+      <div
+        className={clsx("flex gap-2 mt-4 justify-center", paginationClassName)}
+      >
+        {Array.from({ length: pages }).map((_, index) => (
           <span
             key={index}
             className={clsx(
