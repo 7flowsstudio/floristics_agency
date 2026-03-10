@@ -131,7 +131,7 @@ const CoursesPage = () => {
             інформації
           </p>
           <Button className="w-full" variant="primary">
-            Записатися на курс
+            Зв’язатися
           </Button>
         </div>
       </Container>
