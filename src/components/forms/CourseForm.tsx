@@ -56,7 +56,7 @@ export default function CourseForm({ onSuccess }: CourseFormProps) {
       ref={formRef}
       className="max-w-211 mx-auto mt-6 lg:mt-10"
     >
-      <div className="bg-card rounded-2xl py-8 px-4 flex flex-col gap-6 lg:mt-10">
+      <div className="bg-card rounded-2xl py-8 px-4 flex flex-col gap-6 lg:mt-10 lg:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <FormInput
             name="name"

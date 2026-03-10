@@ -1,12 +1,13 @@
-'use client';
-import { useState } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
-import Container from '../layout/Container';
-import SectionHeading from '../ui/SectionHeading';
-import SectionSubheading from '../ui/SectionSubheading';
-import CourseForm from '../forms/CourseForm';
-import Modal from '../ui/modal/Modal';
-import Button from '../ui/Button';
+"use client";
+import { useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
+import Container from "../layout/Container";
+import SectionHeading from "../ui/SectionHeading";
+import SectionSubheading from "../ui/SectionSubheading";
+import CourseForm from "../forms/CourseForm";
+import Modal from "../ui/modal/Modal";
+import Button from "../ui/Button";
+import DesktopPopUp from "../ui/modal/DesktopPopUp";
 
 function Form() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,10 +15,10 @@ function Form() {
   const pathname = usePathname();
 
   const handleHomeClick = () => {
-    if (pathname === '/') {
+    if (pathname === "/") {
       setIsOpen(false);
     } else {
-      router.push('/');
+      router.push("/");
       setIsOpen(false);
     }
   };
@@ -26,18 +27,27 @@ function Form() {
     <Container className="mt-20.25 lg:mt-40">
       <SectionHeading className="pb-2">Готові творити з нами?</SectionHeading>
       <SectionSubheading>
-        Залиш заявку, і ми зв'яжемось, щоб забронювати для тебе місце на курсі
+        Залиш заявку, і ми зв&apos;яжемось, щоб забронювати для тебе місце на
+        курсі
       </SectionSubheading>
       <CourseForm onSuccess={() => setIsOpen(true)} />
 
-      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-        <div className="flex flex-col gap-10">
+      <Modal
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        desktopSize={{
+          width: "1276px",
+          height: "654px",
+        }}
+        desktopStyles="lg:rounded-[24px] lg:bg-[#F7F5F3] lg:shadow-[0_0_14.3px_24px_rgba(0,0,0,0.19)]"
+      >
+        <div className="flex flex-col gap-10 lg:hidden">
           <div className="flex flex-col gap-2 text-center">
             <p className="font-secondary text-4xl font-normal text-primary">
               Дякуємо
             </p>
             <p className="text-black text-xl">
-              за твій інтерес. Ми зв’яжемося з тобою найближчим часом
+              за твій інтерес. Ми зв&apos;яємося з тобою найближчим часом
             </p>
           </div>
           <svg
@@ -54,12 +64,7 @@ function Form() {
             />
           </svg>
           <div className="flex flex-col gap-2">
-            <Button
-              onClick={() => {
-                handleHomeClick();
-              }}
-              className="w-full"
-            >
+            <Button onClick={handleHomeClick} className="w-full">
               На головну
             </Button>
             <Button
@@ -71,6 +76,14 @@ function Form() {
               Проглянути більше курсів
             </Button>
           </div>
+        </div>
+
+        <div className="hidden lg:block">
+          <DesktopPopUp
+            onClose={() => setIsOpen(false)}
+            onHomeClick={handleHomeClick}
+            onCoursesClick={() => router.push("/courses")}
+          />
         </div>
       </Modal>
     </Container>
