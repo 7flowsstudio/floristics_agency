@@ -4,7 +4,8 @@ export const courseFormSchema = z.object({
   name: z
     .string()
     .min(1, 'Будь ласка, введіть від 1 до 20 символів')
-    .max(20, 'Будь ласка, введіть від 1 до 20 символів'),
+    .max(20, 'Будь ласка, введіть від 1 до 20 символів')
+    .trim(),
 
   surname: z.string().optional(),
 

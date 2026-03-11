@@ -1,11 +1,11 @@
-'use client';
-import { useEffect, useRef, useState } from 'react';
-import { useActionState } from 'react';
-import { sendCourseForm } from '@/lib/actions/send-form-actions';
-import { FormInput } from '../ui/form/FormInput';
-import { FormSelect } from '../ui/form/FormSelect';
-import { FormTextarea } from '../ui/form/FormTextarea';
-import Button from '../ui/Button';
+"use client";
+import { useEffect, useRef, useState } from "react";
+import { useActionState } from "react";
+import { sendCourseForm } from "@/lib/actions/send-form-actions";
+import { FormInput } from "../ui/form/FormInput";
+import { FormSelect } from "../ui/form/FormSelect";
+import { FormTextarea } from "../ui/form/FormTextarea";
+import Button from "../ui/Button";
 
 const initialState = {
   success: false,
@@ -24,21 +24,21 @@ export default function CourseForm({ onSuccess }: CourseFormProps) {
   const formRef = useRef<HTMLFormElement>(null);
 
   const courses = [
-    { value: 'my-work-my-dream', label: 'Моя робота — моя мрія' },
-    { value: 'food-floristry', label: 'Food-флористика' },
-    { value: 'floristry', label: 'Флористика' },
-    { value: 'business-management', label: 'Ведення бізнесу' },
+    { value: "my-work-my-dream", label: "Моя робота — моя мрія" },
+    { value: "food-floristry", label: "Food-флористика" },
+    { value: "floristry", label: "Флористика" },
+    { value: "business-management", label: "Ведення бізнесу" },
   ];
 
-  const [selectedCourse, setSelectedCourse] = useState('');
-  const [selectedCourseLabel, setSelectedCourseLabel] = useState('');
+  const [selectedCourse, setSelectedCourse] = useState("");
+  const [selectedCourseLabel, setSelectedCourseLabel] = useState("");
   const [courseTouched, setCourseTouched] = useState(false);
 
   useEffect(() => {
     if (state.success) {
       formRef.current?.reset();
-      setSelectedCourse('');
-      setSelectedCourseLabel('');
+      setSelectedCourse("");
+      setSelectedCourseLabel("");
       setCourseTouched(false);
       onSuccess();
     }
@@ -46,8 +46,8 @@ export default function CourseForm({ onSuccess }: CourseFormProps) {
 
   const handleCourseChange = (val: string) => {
     setSelectedCourse(val);
-    const option = courses.find(c => c.value === val);
-    setSelectedCourseLabel(option?.label || '');
+    const option = courses.find((c) => c.value === val);
+    setSelectedCourseLabel(option?.label || "");
   };
 
   return (
@@ -61,7 +61,7 @@ export default function CourseForm({ onSuccess }: CourseFormProps) {
           <FormInput
             name="name"
             placeholder="Ім'я"
-            error={state.errors?.name?.join(', ')}
+            error={state.errors?.name?.join(", ")}
           />
 
           <FormInput name="surname" placeholder="Прізвище" />
@@ -69,7 +69,7 @@ export default function CourseForm({ onSuccess }: CourseFormProps) {
           <FormInput
             name="phone"
             placeholder="Телефон"
-            error={state.errors?.phone?.join(', ')}
+            error={state.errors?.phone?.join(", ")}
           />
 
           <FormSelect
@@ -79,7 +79,7 @@ export default function CourseForm({ onSuccess }: CourseFormProps) {
             onChange={handleCourseChange}
             onBlur={() => setCourseTouched(true)}
             options={courses}
-            error={state.errors?.course?.join(', ')}
+            error={state.errors?.course?.join(", ")}
             touched={courseTouched}
           />
         </div>
@@ -92,11 +92,13 @@ export default function CourseForm({ onSuccess }: CourseFormProps) {
         />
       </div>
 
+      {state.error && <p className="text-red-500 text-center pt-2">{state.error}</p>}
+
       <Button
         disabled={pending}
         className="w-full mt-8 mb-20 lg:mt-10 lg:mb-45  lg:mx-auto lg:max-w-103"
       >
-        {pending ? 'Відправка...' : 'Хочу творити разом'}
+        {pending ? "Відправка..." : "Хочу творити разом"}
       </Button>
     </form>
   );
