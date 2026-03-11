@@ -6,21 +6,21 @@ import { FormInput } from "../ui/form/FormInput";
 import { FormSelect } from "../ui/form/FormSelect";
 import { FormTextarea } from "../ui/form/FormTextarea";
 import Button from "../ui/Button";
+import { CourseFormState } from "@/lib/types/forms";
 
-const initialState = {
+const initialState: CourseFormState = {
   success: false,
   errors: {},
 };
-
 interface CourseFormProps {
   onSuccess: () => void;
 }
 
 export default function CourseForm({ onSuccess }: CourseFormProps) {
-  const [state, formAction, pending] = useActionState(
-    sendCourseForm,
-    initialState,
-  );
+  const [state, formAction, pending] = useActionState<
+    CourseFormState,
+    FormData
+  >(sendCourseForm, initialState);
   const formRef = useRef<HTMLFormElement>(null);
 
   const courses = [
@@ -73,7 +73,7 @@ export default function CourseForm({ onSuccess }: CourseFormProps) {
           />
 
           <FormSelect
-            name="course"
+            name="courseValue"
             placeholder="Бажаний курс"
             value={selectedCourse}
             onChange={handleCourseChange}
@@ -92,7 +92,9 @@ export default function CourseForm({ onSuccess }: CourseFormProps) {
         />
       </div>
 
-      {state.error && <p className="text-red-500 text-center pt-2">{state.error}</p>}
+      {state.error && (
+        <p className="text-error text-center pt-2">{state.error}</p>
+      )}
 
       <Button
         disabled={pending}

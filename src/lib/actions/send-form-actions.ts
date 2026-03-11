@@ -2,6 +2,7 @@
 
 import nodemailer from "nodemailer";
 import { courseFormSchema } from "@/lib/validation/course-form";
+import { CourseFormState } from "@/lib/types/forms";
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
@@ -13,7 +14,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-export async function sendCourseForm(prevState: any, formData: FormData) {
+export async function sendCourseForm(prevState: CourseFormState, formData: FormData) {
   try {
     const data = Object.fromEntries(formData);
 
@@ -24,6 +25,7 @@ export async function sendCourseForm(prevState: any, formData: FormData) {
         success: false,
         errors: validation.error.flatten().fieldErrors,
       };
+    
     }
 
     const { name, surname, phone, course, message } = validation.data;
@@ -42,7 +44,10 @@ export async function sendCourseForm(prevState: any, formData: FormData) {
         `,
     });
 
-    return { success: true };
+    return {
+      success: true,
+      errors: {},
+    }
   } catch (error) {
     return {
       success: false,
