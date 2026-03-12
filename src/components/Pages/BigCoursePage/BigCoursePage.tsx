@@ -1,5 +1,6 @@
 "use client";
 import Container from "@/components/layout/Container";
+import Accordion from "@/components/ui/Accordion";
 import Slider from "@/components/ui/Slider";
 import Text from "@/components/ui/Text";
 import { bigCourse } from "@/data/bigCourse";
@@ -129,6 +130,49 @@ const BigCoursePage = () => {
             </ul>
           </div>
         </div>
+      </div>
+      <div className="w-full flex flex-col items-center pt-[60px] md:pt-[96px]">
+        <h3 className="text-[#2D1106] text-[20px] pb-[20px] md:pb-[48px] md:text-[32px] text-center md:text-left">
+          Програма курсу
+        </h3>
+        <Accordion
+          items={[
+            {
+              id: "1",
+              title: "Food-флористика",
+              content: (
+                <ul>
+                  <li>Каркасний вихор з сухофруктів</li>
+                  <li>Плетіння каркасів для чоловічого букету</li>
+                  <li>Горіховий «WOW»</li>
+                  <li>Фруктовий бокс XL</li>
+                  <li>Солодкий букет до 14 лютого</li>
+                  <li>Букет на вибір</li>
+                </ul>
+              ),
+            },
+            {
+              id: "2",
+              title: "Пакування та підтримка",
+              content: <p>...</p>,
+            },
+            {
+              id: "3",
+              title: "Відкриття власної справи (опційно)",
+              content: <p>...</p>,
+            },
+            {
+              id: "4",
+              title: "Instagram — базові основи (опційно)",
+              content: <p>...</p>,
+            },
+            {
+              id: "5",
+              title: "Гранти (опційно)",
+              content: <p>...</p>,
+            },
+          ]}
+        />
       </div>
     </Container>
   );
