@@ -21,7 +21,7 @@ export default function Accordion({ items }: Props) {
   };
 
   return (
-    <div>
+    <div className="flex flex-col gap-[8px]">
       {items.map((item) => (
         <AccordionItem
           key={item.id}
