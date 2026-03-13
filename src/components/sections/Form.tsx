@@ -9,7 +9,12 @@ import Modal from "../ui/modal/Modal";
 import Button from "../ui/Button";
 import DesktopPopUp from "../ui/modal/DesktopPopUp";
 
-function Form() {
+interface FormProps {
+  heading?: string;
+  subheading?: string;
+}
+
+function Form({ heading = "Готові творити з нами?", subheading }: FormProps) {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
@@ -24,12 +29,10 @@ function Form() {
   };
 
   return (
-    <Container className="mt-20.25 lg:mt-40">
-      <SectionHeading className="pb-2">Готові творити з нами?</SectionHeading>
-      <SectionSubheading>
-        Залиш заявку, і ми зв&apos;яжемось, щоб забронювати для тебе місце на
-        курсі
-      </SectionSubheading>
+    <Container className="mt-[60px] lg:mt-40">
+      <SectionHeading className="pb-2 px-8 lg:w-full">{heading}</SectionHeading>
+      {subheading && <SectionSubheading>{subheading}</SectionSubheading>}
+
       <CourseForm onSuccess={() => setIsOpen(true)} />
 
       <Modal

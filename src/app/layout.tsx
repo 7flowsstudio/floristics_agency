@@ -4,14 +4,12 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
-
-
 export const metadata: Metadata = {
   title: "Агентство флористики Floristics",
   description: "Флористика та food-флористика для тих, хто любить творити",
   icons: {
-			icon: "/icon.svg",
-		},
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -21,9 +19,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="uk">
-      <body>
+      <body className="min-h-screen flex flex-col">
         <Header />
-        <main className="bg-background scroll-smooth scroll-pt-12.5 overflow-x-hidden w-full">{children}</main>
+        <main className="flex-1 bg-background scroll-smooth scroll-pt-12.5 overflow-x-hidden w-full">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>
