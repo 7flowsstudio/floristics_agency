@@ -1,7 +1,7 @@
 export const bigCourse = [
   {
     id: 1,
-        img: "/img/courses/big/firstimg.webp",
+    img: "/img/courses/big/firstimg.webp",
   },
   {
     id: 2,

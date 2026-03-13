@@ -1,8 +1,10 @@
 "use client";
 import Container from "@/components/layout/Container";
 import Accordion from "@/components/ui/Accordion";
+import Button from "@/components/ui/Button";
 import Slider from "@/components/ui/Slider";
 import Text from "@/components/ui/Text";
+import { bigCourseAcc } from "@/data/accordion/bigCourseAcc";
 import { bigCourse } from "@/data/bigCourse";
 import clsx from "clsx";
 import Image from "next/image";
@@ -136,43 +138,52 @@ const BigCoursePage = () => {
           Програма курсу
         </h3>
         <Accordion
-          items={[
-            {
-              id: "1",
-              title: "Food-флористика",
-              content: (
-                <ul>
-                  <li>Каркасний вихор з сухофруктів</li>
-                  <li>Плетіння каркасів для чоловічого букету</li>
-                  <li>Горіховий «WOW»</li>
-                  <li>Фруктовий бокс XL</li>
-                  <li>Солодкий букет до 14 лютого</li>
-                  <li>Букет на вибір</li>
+          items={bigCourseAcc.map((item) => ({
+            id: item.id,
+            title: item.title,
+            content: (
+              <>
+                <ul className="list-disc ml-5">
+                  {item.items.map((text, i) => (
+                    <li className="text-[16px] md:text-[18px]" key={i}>
+                      {text}
+                    </li>
+                  ))}
                 </ul>
-              ),
-            },
-            {
-              id: "2",
-              title: "Пакування та підтримка",
-              content: <p>...</p>,
-            },
-            {
-              id: "3",
-              title: "Відкриття власної справи (опційно)",
-              content: <p>...</p>,
-            },
-            {
-              id: "4",
-              title: "Instagram — базові основи (опційно)",
-              content: <p>...</p>,
-            },
-            {
-              id: "5",
-              title: "Гранти (опційно)",
-              content: <p>...</p>,
-            },
-          ]}
+
+                {item.footer && (
+                  <div className="mt-4 flex flex-col gap-1">
+                    <span>{item.footer.label}</span>
+                    {item.footer.total && <p>{item.footer.total}</p>}
+                  </div>
+                )}
+              </>
+            ),
+          }))}
         />
+      </div>
+      <div className="flex flex-col items-center pb-[180px]">
+        <ul className="pt-[24px] pb-[24px] md:pt-[48px]">
+          <li className="text-[18px] md:text-[20px]">Формат: онлайн</li>
+          <li className="text-[18px] md:text-[20px]">Доступ: 6 місяців</li>
+        </ul>
+        <div>
+          <p className="text-[20px] font-medium md:text-[24px]">
+            Вартість повного курсу:
+            <span className="line-through">2 617 грн</span>
+          </p>
+          <p className="text-[20px] font-medium text-center md:text-[24px]">
+            {" "}
+            2 500 грн
+          </p>
+        </div>
+        <p className="text-center text-[#1C686D] text-[18px] md:text-[22px] pt-[40px] pb-[24px] md:pt-[48px] md:pb-[48px]">
+          Обери той мікс опційних курсів, що цікавить саме тебе!
+        </p>
+
+        <Button className="w-full max-w-[412px]" variant="primary">
+          Обрати цей курс
+        </Button>
       </div>
     </Container>
   );

@@ -14,9 +14,9 @@ export default function AccordionItem({ item, isOpen, onToggle }: Props) {
     <div className="">
       <button
         onClick={onToggle}
-        className="w-full flex justify-between items-center py-4"
+        className="w-full flex justify-between items-center"
       >
-        <span>{item.title}</span>
+        <span className="text-[18px] md:text-[22px]">{item.title}</span>
 
         <Image
           src="/line-arrow.svg"
