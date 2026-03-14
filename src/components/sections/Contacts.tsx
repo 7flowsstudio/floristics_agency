@@ -9,7 +9,7 @@ const Contacts = () => {
   return (
       <Container className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-center lg:gap-[124px]">
         <div className="flex flex-col gap-4 lg:max-w-[406px] lg:gap-9 lg:justify-center lg:shrink-0">
-          <SectionHeading className="font-secondary text-primary text-[36px] leading-10 md:text-[64px] lg:text-[64px]">
+          <SectionHeading className="font-secondary text-primary text-[36px] leading-10 md:text-[42px] lg:text-[64px]">
             Зв&apos;яжися з нами
           </SectionHeading>
           <SectionSubheading>

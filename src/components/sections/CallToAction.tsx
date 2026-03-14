@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import Container from "../layout/Container";
-import SectionHeading from "../ui/SectionHeading";
-import Button from "../ui/Button";
+import Container from '../layout/Container';
+import SectionHeading from '../ui/SectionHeading';
+import Button from '../ui/Button';
 
 interface CallToActionProps {
   question: string;
@@ -21,22 +21,15 @@ export default function CallToAction({
   href,
 }: CallToActionProps) {
   return (
-    <section className="">
-      <Container className="text-center flex flex-col items-center gap-6 md:max-w-[844px] w-full">
-          {text && (
-            <i className="max-w-xl text-black md:text-[24px]">
-              {text}
-            </i>
-          )}
-        <SectionHeading className="text-[32px]">
-          {question}{" "}
-          {highlight && (
-            <span className="font-secondary">{highlight}</span>
-          )}
-        </SectionHeading>
+    <section className="pb-[40px] lg:pb-[180px]">
+      <Container className="text-center flex flex-col items-center gap-6 w-full">
+        {text && <p className="max-w-xl text-black md:text-[24px] italic md:max-w-[844px]">{text}</p>}
+        <p className="text-[16px] md:text-[32px] text-dark-brown">
+          {question}{' '}
+          {highlight && <span className="font-secondary">{highlight}</span>}
+        </p>
 
-
-        <Button href={href} className="w-full md:w-auto">
+        <Button href={href} className="w-full md:w-[412px]">
           {buttonText}
         </Button>
       </Container>

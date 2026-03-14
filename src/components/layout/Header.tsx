@@ -52,19 +52,19 @@ const Header = ({
         } ${isScrolled ? background : 'bg-transparent shadow-none'}`}
       >
         <Container>
-          <div className="hidden md:flex flex-col items-center gap-4 lg:gap-6 xl:flex-row xl:justify-between xl:items-center">
+          <div className="hidden md:flex items-center justify-between gap-4 lg:gap-6">
             <div className="flex justify-center xl:justify-start">
               <Logo
                 variant={isHome ? 'primary' : 'black'}
                 className={logoSize}
               />
             </div>
-            <nav className="flex flex-wrap justify-center xl:justify-start gap-1">
+            <nav className="flex items-center gap-1 md:gap-2 lg:gap-3 xl:gap-4">
               {navigation.map(item => (
                 <NavLink
                   key={item.href}
                   href={item.href}
-                  className="px-2 md:px-3 lg:px-8.5"
+                  className="px-2 md:px-3 lg:px-4 xl:px-6"
                 >
                   {item.label}
                 </NavLink>
@@ -72,7 +72,7 @@ const Header = ({
             </nav>
             <a
               href="tel:+380932451284"
-              className="text-black hidden xl:flex items-center gap-2 md:gap-3 lg:gap-4"
+              className="text-black hidden lg:flex items-center gap-2 lg:gap-3"
             >
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                 <path
