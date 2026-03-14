@@ -5,7 +5,7 @@ import Button from "@/components/ui/Button";
 import Slider from "@/components/ui/Slider";
 import Text from "@/components/ui/Text";
 import { bigCourseAcc } from "@/data/accordion/bigCourseAcc";
-import { bigCourse } from "@/data/bigCourse";
+import { bigCourse, bigCourseAudience, bigCourseList } from "@/data/bigCourse";
 import clsx from "clsx";
 import Image from "next/image";
 
@@ -66,22 +66,11 @@ const BigCoursePage = () => {
               Для кого цей курс
             </h3>
             <ul className="list-none flex flex-col justify-center gap-[8px]">
-              <li>
-                <Text>
-                  Ти маєш творчі навички і хочеш заробляти на Food-Флористиці
-                </Text>
-              </li>
-              <li>
-                <Text>
-                  Плануєш відкрити власну справу, але не знаєш, з чого почати
-                </Text>
-              </li>
-              <li>
-                <Text>Боїшся цифр, але розумієш, що без них не обійтись</Text>
-              </li>
-              <li>
-                <Text>Хочеш ясності замість здогадок і страху помилитися</Text>
-              </li>
+              {bigCourseAudience.map((text, i) => (
+                <li key={i}>
+                  <Text>{text}</Text>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="max-w-[412px] pt-[60px] md:pt-[40px]">
@@ -89,46 +78,18 @@ const BigCoursePage = () => {
               Що ти вивчиш
             </h3>
             <ul className="list-none flex flex-col justify-center gap-[8px]">
-              <li className="flex gap-[8px]">
-                <Image
-                  src="/flower.svg"
-                  alt=""
-                  width={14}
-                  height={15}
-                  unoptimized
-                />
-                <Text>Як перетворити творчу ідею на реальний бізнес</Text>
-              </li>
-              <li className="flex gap-[8px]">
-                <Image
-                  src="/flower.svg"
-                  alt=""
-                  width={14}
-                  height={15}
-                  unoptimized
-                />
-                <Text>З чого почати власну справу</Text>
-              </li>
-              <li className="flex gap-[8px]">
-                <Image
-                  src="/flower.svg"
-                  alt=""
-                  width={14}
-                  height={15}
-                  unoptimized
-                />
-                <Text>Як оцінити ідею, ресурси та ризики</Text>
-              </li>
-              <li className="flex gap-[8px]">
-                <Image
-                  src="/flower.svg"
-                  alt=""
-                  width={14}
-                  height={15}
-                  unoptimized
-                />
-                <Text>Впевнене прийняття бізнес-рішень</Text>
-              </li>
+              {bigCourseList.map((text, i) => (
+                <li key={i} className="flex gap-[8px]">
+                  <Image
+                    src="/flower.svg"
+                    alt=""
+                    width={14}
+                    height={15}
+                    unoptimized
+                  />
+                  <Text>{text}</Text>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -173,7 +134,6 @@ const BigCoursePage = () => {
             <span className="line-through">2 617 грн</span>
           </p>
           <p className="text-[20px] font-medium text-center md:text-[24px]">
-            {" "}
             2 500 грн
           </p>
         </div>
