@@ -1,29 +1,27 @@
-import type { Metadata } from "next";
-import "./variables.css";
-import "./globals.css";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-
-
+import './variables.css';
+import './globals.css';
+import type { Metadata } from 'next';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
-  title: "Агентство флористики Floristics",
-  description: "Флористика та food-флористика для тих, хто любить творити",
+  title: 'Агентство флористики Floristics',
+  description: 'Флористика та food-флористика для тих, хто любить творити',
   icons: {
-			icon: "/icon.svg",
-		},
+    icon: '/icon.svg',
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="uk">
-      <body>
+      <body className="min-h-screen flex flex-col bg-background relative">
         <Header />
-        <main className="bg-background scroll-smooth scroll-pt-12.5 overflow-x-hidden w-full">{children}</main>
+        {children}
         <Footer />
       </body>
     </html>

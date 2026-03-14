@@ -11,7 +11,7 @@ export default function Home() {
       <About />
       <Courses />
       <Reviews />
-      <Form />
+      <Form subheading="Залиш заявку, і ми зв’яжемось, щоб забронювати для тебе місце на курсі"/>
     </>
   );
 }

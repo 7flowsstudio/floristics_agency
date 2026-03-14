@@ -39,7 +39,8 @@ function Slider<T>({
     const slideWidth = container.firstElementChild?.clientWidth || 1;
     const containerWidth = container.clientWidth;
     const visibleSlides = Math.floor(containerWidth / (slideWidth + gap));
-    setPages(Math.max(items.length - visibleSlides + 1, 1));
+    // setPages(Math.max(items.length - visibleSlides + 1, 1));
+    setPages(items.length)
   };
 
   // Слідкуємо за скролом
