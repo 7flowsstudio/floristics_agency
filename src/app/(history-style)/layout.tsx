@@ -7,11 +7,9 @@ export default function HistoryLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
+    <div className="relative min-h-screen">
       <StarsLayer stars={historyStars} />
-      <main className="relative z-20 flex-1 bg-background scroll-smooth scroll-pt-12.5 overflow-x-hidden w-full">
-        {children}
-      </main>
-    </>
+      <main className="relative z-20 w-full">{children}</main>
+    </div>
   );
 }

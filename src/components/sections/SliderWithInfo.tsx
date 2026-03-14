@@ -8,7 +8,7 @@ import Image from 'next/image';
 export type SliderItem = {
   id: string;
   title?: string;
-  text: string;
+  text: (string | string[])[];
   imageUrl?: string;
 };
 
@@ -50,7 +50,7 @@ const SliderWithInfo: FC<SliderWithInfoProps> = ({ heading, items }) => {
               "
             >
               {item.imageUrl && (
-                <div className="relative w-full md:w-[433px] aspect-[4/3] md:aspect-auto md:h-[433px] flex-shrink-0">
+                <div className="relative w-full md:w-[433px] aspect-[4/3] md:aspect-auto md:h-full flex-shrink-0">
                   <Image
                     src={item.imageUrl}
                     alt={item.title || 'image'}
@@ -60,16 +60,29 @@ const SliderWithInfo: FC<SliderWithInfoProps> = ({ heading, items }) => {
                 </div>
               )}
 
-              <div className="flex flex-col gap-2 bg-card px-[29px] py-[16px] md:w-[433px] rounded h-full">
+              <div className="flex flex-col gap-2 bg-card px-[29px] py-[16px] md:w-[433px] rounded h-full lg:px-[46px] lg:py-[32px]">
                 {item.title && (
-                  <p className="font-medium text-xl lg:text-[20px]">
+                  <p className="text-xl lg:text-[28px]">
                     {item.title}
                   </p>
                 )}
 
-                {item.text && (
-                  <p className="text-base lg:text-[20px]">{item.text}</p>
-                )}
+                {item.text.map((line, i) => {
+                  if (Array.isArray(line)) {
+                    return (
+                      <ul key={i} className="pl-5 mb-2">
+                        {line.map((li, j) => (
+                          <li className="text-base lg:text-[20px]" key={j}>{li}</li>
+                        ))}
+                      </ul>
+                    );
+                  }
+                  return (
+                    <p key={i} className="mb-2 text-base lg:text-[20px]">
+                      {line}
+                    </p>
+                  );
+                })}
               </div>
             </div>
           )}

@@ -1,7 +1,6 @@
 'use client';
-
+import clsx from 'clsx';
 import Container from '../layout/Container';
-import SectionHeading from '../ui/SectionHeading';
 import Button from '../ui/Button';
 
 interface CallToActionProps {
@@ -11,6 +10,9 @@ interface CallToActionProps {
   buttonText: string;
   href?: string;
   onClick?: () => void;
+  sectionClassName?: string;
+  textClassName?: string;
+  questionClassName?:string;
 }
 
 export default function CallToAction({
@@ -19,12 +21,24 @@ export default function CallToAction({
   text,
   buttonText,
   href,
+  sectionClassName = '',
+  textClassName = '',
+  questionClassName=''
 }: CallToActionProps) {
   return (
-    <section className="pb-[40px] lg:pb-[180px]">
+    <section className={clsx('pb-[40px] lg:pb-[180px]', sectionClassName)}>
       <Container className="text-center flex flex-col items-center gap-6 w-full">
-        {text && <p className="max-w-xl text-black md:text-[24px] italic md:max-w-[844px]">{text}</p>}
-        <p className="text-[16px] md:text-[32px] text-dark-brown">
+        {text && (
+          <p
+            className={clsx(
+              'max-w-xl text-black md:text-[24px] italic md:max-w-[844px]',
+              textClassName,
+            )}
+          >
+            {text}
+          </p>
+        )}
+        <p className={clsx('text-[16px] md:text-[32px] text-dark-brown', questionClassName)}>
           {question}{' '}
           {highlight && <span className="font-secondary">{highlight}</span>}
         </p>

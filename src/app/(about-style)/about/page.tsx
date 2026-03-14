@@ -3,18 +3,18 @@ import InstagramInfo from '@/components/sections/InstagramInfo';
 import { about } from '@/data/about';
 import SliderWithInfo from '@/components/sections/SliderWithInfo';
 
-export type CourseSliderItem = {
+export type SliderItem = {
   id: string;
   title?: string;
-  text: string;
+  text: (string | string[])[];
   imageUrl?: string;
 };
 
 const page = () => {
-  const items: CourseSliderItem[] = about.map((c, index) => ({
+  const items: SliderItem[] = about.map((c, index) => ({
     id: c.id.toString(),
     title: c.title,
-    text: c.text,
+    text: Array.isArray(c.text) ? c.text : [c.text],
     imageUrl: c.img,
   }));
 
