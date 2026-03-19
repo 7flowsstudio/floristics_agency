@@ -1,36 +1,37 @@
-"use client";
+"use client"
+
 import Container from "@/components/layout/Container";
 import Accordion from "@/components/ui/Accordion";
 import Button from "@/components/ui/Button";
 import Slider from "@/components/ui/Slider";
 import Text from "@/components/ui/Text";
-import { bigCourseAcc } from "@/data/accordion/bigCourseAcc";
-import { bigCourse, bigCourseAudience, bigCourseList } from "@/data/bigCourse";
+import { foodFlCourseAcc } from "@/data/accordion/foodFlCourseAcc";
+import { foodFlCourse, foodFlCourseAudience, foodFlCourseList } from "@/data/foodFl";
 import clsx from "clsx";
 import Image from "next/image";
 
-export type BigCourseSliderItem = {
+export type FoodFlCourseSliderItem = {
   id: string;
   imageUrl?: string;
 };
 
-const BigCoursePage = () => {
-  const items: BigCourseSliderItem[] = bigCourse.map((c, index) => ({
-    id: c.id.toString(),
-    imageUrl: c.img,
-  }));
-  return (
-    <Container className="pt-[100px] md:pt-[200px]">
+const FoodFlCoursePage = () => {
+      const items: FoodFlCourseSliderItem[] = foodFlCourse.map((c, index) => ({
+        id: c.id.toString(),
+        imageUrl: c.img,
+      }));
+    return (
+        <Container className="pt-[100px] md:pt-[200px]">
       <h2 className="text-[#1C686D] text-[24px] font-medium pb-[8px] md:pb-[16px] md:text-[40px] text-center">
-        Food-Флористика: Від ідеї до бізнесу
+        Базовий курс з Food-Флористики
       </h2>
       <p className="text-[18px] pb-[24px] md:pb-[30px] md:text-[22px] text-center">
-        Від творчості до власної справи
+        Як однієї з форм мистецтва
       </p>
       <div className="flex flex-col md:flex-row gap-[65px]">
         <div className="md:w-1/2">
           <div className="">
-            <Slider<BigCourseSliderItem>
+            <Slider<FoodFlCourseSliderItem>
               items={items}
               gap={16}
               paginationClassName="md:hidden"
@@ -43,7 +44,7 @@ const BigCoursePage = () => {
                   )}
                 >
                   {item.imageUrl && (
-                    <div className="w-full h-[318px] relative rounded md:h-[440px]">
+                    <div className="w-full h-[318px] relative rounded overflow-hidden">
                       <Image
                         src={item.imageUrl}
                         alt={"food-floristic"}
@@ -57,7 +58,7 @@ const BigCoursePage = () => {
             />
           </div>
           <p className="text-center text-[#1C686D] text-[18px] md:text-[24px] italic pt-[32px] pb-[60px] md:pt-[16px] md:pb-[0px]">
-            Коли творчість стає справою життя
+            Авторський курс зі створення їстівних композицій
           </p>
         </div>
         <div className="md:w-1/2 flex flex-col items-center md:justify-end md:items-start">
@@ -66,7 +67,7 @@ const BigCoursePage = () => {
               Для кого цей курс
             </h3>
             <ul className="list-none flex flex-col justify-center gap-[8px]">
-              {bigCourseAudience.map((text, i) => (
+              {foodFlCourseAudience.map((text, i) => (
                 <li key={i}>
                   <Text className="tracking-[0.01em]">{text}</Text>
                 </li>
@@ -78,7 +79,7 @@ const BigCoursePage = () => {
               Що ти вивчиш
             </h3>
             <ul className="list-none flex flex-col justify-center gap-[8px]">
-              {bigCourseList.map((text, i) => (
+              {foodFlCourseList.map((text, i) => (
                 <li key={i} className="flex gap-[8px]">
                   <Image
                     src="/flower.svg"
@@ -99,7 +100,7 @@ const BigCoursePage = () => {
           Програма курсу
         </h3>
         <Accordion
-          items={bigCourseAcc.map((item) => ({
+          items={foodFlCourseAcc.map((item) => ({
             id: item.id,
             title: item.title,
             content: (
@@ -111,42 +112,23 @@ const BigCoursePage = () => {
                     </li>
                   ))}
                 </ul>
-
-                {item.footer && (
-                  <div className="mt-4 flex flex-col gap-1">
-                    <span>{item.footer.label}</span>
-                    {item.footer.total && <p>{item.footer.total}</p>}
-                  </div>
-                )}
               </>
             ),
           }))}
         />
       </div>
       <div className="flex flex-col items-center pb-[180px]">
-        <ul className="pt-[24px] pb-[24px] md:pt-[48px]">
-          <li className="text-[18px] md:text-[20px]">Формат: онлайн</li>
-          <li className="text-[18px] md:text-[20px]">Доступ: 6 місяців</li>
-        </ul>
         <div>
-          <p className="text-[20px] font-medium md:text-[24px]">
-            Вартість повного курсу:
-            <span className="line-through">2 617 грн</span>
-          </p>
-          <p className="text-[20px] font-medium text-center md:text-[24px]">
-            2 500 грн
+          <p className="text-[20px] font-medium md:text-[24px] pt-[24px] md:pt-[48px] pb-[40px] md:pb-[48px]">
+            Вартість курсу:
+            <span className="line-through">1 500 грн</span>
           </p>
         </div>
-        <p className="text-center text-[#1C686D] text-[18px] md:text-[22px] pt-[40px] pb-[24px] md:pt-[48px] md:pb-[48px]">
-          Обери той мікс опційних курсів, що цікавить саме тебе!
-        </p>
 
         <Button className="w-full max-w-[412px]" variant="primary">
           Обрати цей курс
         </Button>
       </div>
-    </Container>
-  );
-};
-
-export default BigCoursePage;
+    </Container>)
+}
+export default FoodFlCoursePage
