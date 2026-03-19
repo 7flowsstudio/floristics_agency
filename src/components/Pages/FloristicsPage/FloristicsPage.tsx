@@ -45,11 +45,11 @@ const FloristicsPage = () => {
                   key={item.id}
                   className={clsx(
                     "flex-shrink-0 rounded-lg overflow-hidden relative",
-                    "min-w-[320px]  [@media(max-width:374px)]:min-w-[280px]",
+                    "min-w-[320px] md:min-w-[408px] [@media(max-width:374px)]:min-w-[280px]",
                   )}
                 >
                   {item.imageUrl && (
-                    <div className="w-full h-[318px] relative rounded mb-3">
+                    <div className="w-full h-[318px] md:h-[440px] relative rounded">
                       <Image
                         src={item.imageUrl}
                         alt={"food-floristic"}
@@ -75,7 +75,7 @@ const FloristicsPage = () => {
             <ul className="list-none flex flex-col justify-center gap-[8px]">
               {floristicAudience.map((text, i) => (
                 <li key={i}>
-                  <Text>{text}</Text>
+                  <Text className="tracking-[0.01em]">{text}</Text>
                 </li>
               ))}
             </ul>
@@ -129,7 +129,7 @@ const FloristicsPage = () => {
               <ul className="list-none flex flex-col justify-center gap-[8px] max-w-[412px]">
                 {online.map((text, i) => (
                   <li key={i}>
-                    <Text>{text}</Text>
+                    <Text className="tracking-[0.01em]">{text}</Text>
                   </li>
                 ))}
               </ul>
