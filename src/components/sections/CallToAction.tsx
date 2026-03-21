@@ -38,9 +38,9 @@ export default function CallToAction({
             {text}
           </p>
         )}
-        <p className={clsx('text-[16px] md:text-[32px] text-dark-brown', questionClassName)}>
+        <p className={clsx('text-[20px] md:text-[32px] text-dark-brown lg:w-[626px]', questionClassName)}>
           {question}{' '}
-          {highlight && <span className="font-secondary">{highlight}</span>}
+          {highlight && <span className="text-[32px] lg:text-[48px] font-secondary">{highlight}</span>}
         </p>
 
         <Button href={href} className="w-full md:w-[412px]">
