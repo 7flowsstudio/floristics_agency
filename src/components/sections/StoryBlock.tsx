@@ -8,7 +8,7 @@ type StoryBlockProps = {
   testimonial: string[];
   reverse?: boolean;
   showHeading?: boolean;
-  paddingX?: { md?: string; lg?: string }; // новий проп для desktop ширини тексту
+  paddingX?: { md?: string; lg?: string };
 };
 
 function StoryBlock({
@@ -21,11 +21,7 @@ function StoryBlock({
 }: StoryBlockProps) {
   return (
     <>
-      {/* MOBILE */}
       <div className="lg:hidden">
-        <SectionHeading className="font-secondary text-primary text-[36px] md:text-[42px] lg:text-[64px] leading-10 max-w-[269px] mx-auto mb-[40px] lg:max-w-none">
-          Історії наших учнів та учениць
-        </SectionHeading>
         <div className="bg-card h-full max-w-131.25 mx-auto px-5 pt-8 pb-12 relative overflow-hidden">
           <Image
             className="max-h-113.25 w-full object-cover rounded-lg"
@@ -51,9 +47,8 @@ function StoryBlock({
         </div>
       </div>
 
-      {/* DESKTOP */}
       <Container
-        className={`hidden md:flex pt-40 items-center ${
+        className={`w-full hidden lg:flex pt-40 items-center ${
           reverse ? 'flex-row-reverse' : ''
         }`}
       >
@@ -67,7 +62,7 @@ function StoryBlock({
 
         <div className="flex-1">
           {showHeading && (
-            <SectionHeading className="font-secondary text-primary text-[36px] md:text-[42px] lg:text-[64px] leading-10 max-w-[269px] mx-auto mb-[40px] lg:max-w-none">
+            <SectionHeading className="font-secondary text-primary text-[36px] md:text-[42px] lg:text-[64px] leading-10 max-w-67.25 mx-auto mb-10 lg:max-w-none">
               Історії наших учнів та учениць
             </SectionHeading>
           )}
@@ -85,7 +80,10 @@ function StoryBlock({
                 } ${paddingX?.lg ? `lg:${paddingX.lg}` : ''}`}
               >
                 {testimonial.map((paragraph, index) => (
-                  <p key={index} className="mb-2 md:text-[18px]">
+                  <p
+                    key={index}
+                    className="mb-2 md:text-[18px] w-full max-w-161 lg:text-2xl mx-auto px-4"
+                  >
                     {paragraph}
                   </p>
                 ))}
