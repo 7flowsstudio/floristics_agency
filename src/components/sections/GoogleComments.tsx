@@ -6,7 +6,7 @@ import { reviews } from '@/data/reviews';
 
 function GoogleComments() {
   return (
-    <Container className="pt-18">
+    <Container className="pt-18 lg:pt-[116px]">
       <SectionHeading className="w-57.5 md:w-full mx-auto">
         Що нам пишуть на Google Maps
       </SectionHeading>

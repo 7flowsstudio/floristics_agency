@@ -2,6 +2,7 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import StoryBlock from '@/components/sections/StoryBlock';
 import { stories } from '@/data/stories';
 import GoogleComments from '@/components/sections/GoogleComments';
+import CallToAction from '@/components/sections/CallToAction';
 
 const page = () => {
   return (
@@ -27,6 +28,13 @@ const page = () => {
         ))}
       </div>
       <GoogleComments />
+      <CallToAction
+        sectionClassName="pt-[104px] lg:pt-[160px] mx-auto"
+        question="Готові отримати такі ж чудові враження та почати свою справу з "
+        highlight="with taste?"
+        buttonText="Записатися на курс"
+        href="/courses"
+      />
     </div>
   );
 };
