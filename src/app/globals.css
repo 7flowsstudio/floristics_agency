@@ -41,6 +41,7 @@
   --color-card: var(--with-taste-card);
   --color-dark-brown: var(--with-taste-dark-brown);
   --color-greyNormalActive: var(--foundation--grey-normal-active);
+  --color-foundationGreyDark: var(--foundation--grey-dark);
   --color-cardDark: var(--with-taste-dark-card);
   --hero-gradient: var(--hero-gradient);
   --gradient-image-overlay: linear-gradient(

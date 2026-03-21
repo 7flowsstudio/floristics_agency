@@ -1,12 +1,15 @@
 import SectionHeading from '@/components/ui/SectionHeading';
-import CallToAction from '@/components/sections/CallToAction';
 import StoryBlock from '@/components/sections/StoryBlock';
 import { stories } from '@/data/stories';
+import GoogleComments from '@/components/sections/GoogleComments';
 
 const page = () => {
   return (
-    <div className="pt-[115px] pb-[72px] lg:pt-0">
-      <div className="flex flex-col gap-[69px] lg:gap-0">
+    <div className="pt-28.75 pb-18 lg:pt-0">
+      <SectionHeading className="font-secondary text-primary text-[36px] md:text-[42px] lg:text-[64px] leading-10 max-w-67.25 mx-auto mb-10 lg:hidden">
+        Історії наших учнів та учениць
+      </SectionHeading>
+      <div className="flex flex-col gap-17.25 lg:gap-0">
         {stories.map((story, i) => (
           <StoryBlock
             key={story.image}
@@ -23,6 +26,7 @@ const page = () => {
           />
         ))}
       </div>
+      <GoogleComments />
     </div>
   );
 };
