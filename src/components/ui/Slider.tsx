@@ -5,7 +5,7 @@ import { useSmoothScroll } from "@/utils/useSmoothScroll/useSmoothScroll";
 
 type SliderProps<T> = {
   items: T[];
-  renderCard: (item: T, index: number) => React.ReactNode; // універсальний рендер картки
+  renderCard: (item: T, index: number) => React.ReactNode;
   slidesToScroll?: number;
   gap?: number;
   duration?: number;
@@ -32,18 +32,15 @@ function Slider<T>({
   const [scrollIndex, setScrollIndex] = useState(0);
   const [pages, setPages] = useState(1);
 
-  // Обчислення кількості сторінок
   const updatePages = () => {
     if (!containerRef.current) return;
     const container = containerRef.current;
     const slideWidth = container.firstElementChild?.clientWidth || 1;
     const containerWidth = container.clientWidth;
     const visibleSlides = Math.floor(containerWidth / (slideWidth + gap));
-    // setPages(Math.max(items.length - visibleSlides + 1, 1));
-    setPages(items.length)
+    setPages(Math.max(items.length - visibleSlides + 1, 1));
   };
 
-  // Слідкуємо за скролом
   const handleScroll = () => {
     if (!containerRef.current) return;
     const container = containerRef.current;
@@ -52,17 +49,21 @@ function Slider<T>({
     setScrollIndex(index);
   };
 
-  // Ініціалізація і resize
+  // Ініціалізація, resize та scroll
   useEffect(() => {
-    updatePages();
-    handleScroll(); // оновлюємо scrollIndex при першому рендері
-
-    window.addEventListener("resize", updatePages);
     const container = containerRef.current;
     if (!container) return;
+
+    const raf = requestAnimationFrame(() => {
+      updatePages();
+      handleScroll();
+    });
+
+    window.addEventListener("resize", updatePages);
     container.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
+      cancelAnimationFrame(raf);
       window.removeEventListener("resize", updatePages);
       container.removeEventListener("scroll", handleScroll);
     };
@@ -78,6 +79,76 @@ function Slider<T>({
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
   }, [scrollSmooth]);
+
+  // Drag мишкою
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    let isDragging = false;
+    let startX = 0;
+    let scrollLeft = 0;
+
+    const onMouseDown = (e: MouseEvent) => {
+      isDragging = true;
+      startX = e.pageX - container.offsetLeft;
+      scrollLeft = container.scrollLeft;
+      container.classList.add("cursor-grabbing");
+    };
+
+    const onMouseMove = (e: MouseEvent) => {
+      if (!isDragging) return;
+      const x = e.pageX - container.offsetLeft;
+      const walk = startX - x;
+      container.scrollLeft = scrollLeft + walk;
+    };
+
+    const onMouseUp = () => {
+      isDragging = false;
+      container.classList.remove("cursor-grabbing");
+    };
+
+    container.addEventListener("mousedown", onMouseDown);
+    container.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mouseup", onMouseUp);
+
+    return () => {
+      container.removeEventListener("mousedown", onMouseDown);
+      container.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mouseup", onMouseUp);
+    };
+  }, []);
+
+  // Плавний скрол колесом
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const easeOutQuad = (t: number) => t * (2 - t);
+
+    const smoothScroll = (delta: number) => {
+      const start = container.scrollLeft;
+      const end = start + delta;
+      let startTime: number | null = null;
+      const duration = 300;
+
+      const step = (timestamp: number) => {
+        if (!startTime) startTime = timestamp;
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        container.scrollLeft = start + (end - start) * easeOutQuad(progress);
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+
+    const onWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      smoothScroll(e.deltaY);
+    };
+
+    container.addEventListener("wheel", onWheel, { passive: false });
+    return () => container.removeEventListener("wheel", onWheel);
+  }, []);
 
   return (
     <div className="w-full relative">
