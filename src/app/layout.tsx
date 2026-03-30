@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Агентство флористики Floristics',
   description: 'Флористика та food-флористика для тих, хто любить творити',
   icons: {
-    icon: '/icon.svg',
+    icon: '/logo-black.svg',
   },
 };
 
