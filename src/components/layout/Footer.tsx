@@ -10,8 +10,8 @@ const Footer = () => {
     <footer className="bg-card py-14.5 md:pt-20 md:pb-10.25">
       <Container>
         <div className="flex flex-col items-center gap-8 text-center md:flex-row md:justify-between">
-          <Link href="/" className="block">
-            <LogoPrimary className="text-primary hover:text-primaryActive transition w-18 h-14.5 md:w-49 md:h-39.5" />
+          <Link href="/" className="block" aria-label="На головну сторінку WithTaste">
+            <LogoPrimary className="text-primary hover:text-primaryActive transition w-18 h-14.5 md:w-49 md:h-39.5" aria-hidden="true" />
           </Link>
 
           <nav className="flex flex-col items-center gap-6 text-primary font-medium text-[20px]">
@@ -61,10 +61,11 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2.25 transition-colors duration-300 hover:text-primary"
+            aria-label="Перейти на сайт агенції 7flows.studio"
           >
             <Image
               src="/logo-agency.svg"
-              alt="Лого агенції"
+              alt="Лого агенції 7flows.studio"
               width={39}
               height={36}
             />
