@@ -1,9 +1,11 @@
-import Container from "@/components/layout/Container";
-import Button from "@/components/ui/Button";
-import Image from "next/image";
-import React from "react";
+'use client';
+import Container from '@/components/layout/Container';
+import Button from '@/components/ui/Button';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
+
   return (
     <div
       className="
@@ -20,11 +22,16 @@ const Hero = () => {
     >
       <Container>
         <div className="flex flex-row md:gap-[28px] md:justify-between xl:gap-[120px]">
-          <div className="flex flex-col mx-auto justify-between md:justify-start h-[90vh] md:mx-0">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, ease: 'easeOut' }}
+            className="flex flex-col mx-auto justify-between md:justify-start h-[75vh] md:mx-0"
+          >
             <div className="mx-auto">
               <div className="mx-auto max-w-[400px] lg:max-w-full">
                 <h1 className="text-[#1C686D] text-[40px] leading-[45px] lg:text-[64px] lg:leading-[65px] font-secondary md:pt-31.25">
-                  Мрій яскраво,{" "}
+                  Мрій яскраво,{' '}
                   <span className="block text-right min-[1407px]:inline min-[1407px]:text-left">
                     твори сміливо
                   </span>
@@ -35,7 +42,7 @@ const Hero = () => {
               </p>
             </div>
             <div className="flex flex-col gap-[8px] lg:flex-row md:gap-[20px] w-full">
-              <Button className="w-full" variant="primary">
+              <Button className="w-full" variant="primary" href="/courses">
                 Записатися на курс
               </Button>
               <Button
@@ -43,21 +50,31 @@ const Hero = () => {
                 iconSrc="/arrow-down.svg"
                 variant="outline"
                 iconPosition="right"
+                href="#more"
               >
                 Дізнатися більше
               </Button>
             </div>
-          </div>
-          <div className="relative w-[520px] h-[674px] hidden md:block rounded-[16px] overflow-hidden">
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            whileHover={{
+              scale: 1.02,
+              transition: { duration: 0.3 },
+            }}
+            transition={{ duration: 1, ease: 'easeOut' }}
+            className="relative w-[520px] h-[674px] hidden md:block rounded-[16px] overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300"
+          >
             <Image
               src="/img/hero/deshero.webp"
               alt="flowers"
               fill
-              style={{ objectFit: "cover" }}
-              priority={false}
-              loading="lazy"
+              style={{ objectFit: 'cover' }}
+              priority
             />
-          </div>
+          </motion.div>
         </div>
       </Container>
     </div>
