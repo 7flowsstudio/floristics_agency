@@ -10,8 +10,15 @@ const Footer = () => {
     <footer className="bg-card py-14.5 md:pt-20 md:pb-10.25">
       <Container>
         <div className="flex flex-col items-center gap-8 text-center md:flex-row md:justify-between">
-          <Link href="/" className="block" aria-label="На головну сторінку WithTaste">
-            <LogoPrimary className="text-primary hover:text-primaryActive transition w-18 h-14.5 md:w-49 md:h-39.5" aria-hidden="true" />
+          <Link
+            href="/"
+            className="block"
+            aria-label="На головну сторінку WithTaste"
+          >
+            <LogoPrimary
+              className="text-primary hover:text-primaryActive transition w-18 h-14.5 md:w-49 md:h-39.5"
+              aria-hidden="true"
+            />
           </Link>
 
           <nav className="flex flex-col items-center gap-6 text-primary font-medium text-[20px]">
@@ -72,7 +79,20 @@ const Footer = () => {
             7flows.studio
           </a>
 
-          <p>&copy; {new Date().getFullYear()} WithTaste. Всі права захищені</p>
+          <div className="flex flex-col items-center gap-1 md:flex-row md:gap-4">
+            <p>
+              &copy; {new Date().getFullYear()} WithTaste. Всі права захищені
+            </p>
+
+            <span className="hidden md:block text-greyNormalActive">|</span>
+
+            <Link
+              href="/privacy-policy"
+              className="hover:text-primary transition-colors duration-300 underline md:no-underline md:hover:underline"
+            >
+              Політика конфіденційності
+            </Link>
+          </div>
         </div>
       </Container>
     </footer>

@@ -1,12 +1,13 @@
-"use client";
-import { useEffect, useRef, useState } from "react";
-import { useActionState } from "react";
-import { sendCourseForm } from "@/lib/actions/send-form-actions";
-import { FormInput } from "../ui/form/FormInput";
-import { FormSelect } from "../ui/form/FormSelect";
-import { FormTextarea } from "../ui/form/FormTextarea";
-import Button from "../ui/Button";
-import { CourseFormState } from "@/lib/types/forms";
+'use client';
+import { useEffect, useRef, useState } from 'react';
+import { useActionState } from 'react';
+import { sendCourseForm } from '@/lib/actions/send-form-actions';
+import { FormInput } from '../ui/form/FormInput';
+import { FormSelect } from '../ui/form/FormSelect';
+import { FormTextarea } from '../ui/form/FormTextarea';
+import Button from '../ui/Button';
+import { CourseFormState } from '@/lib/types/forms';
+import Link from 'next/link';
 
 const initialState: CourseFormState = {
   success: false,
@@ -22,23 +23,24 @@ export default function CourseForm({ onSuccess }: CourseFormProps) {
     FormData
   >(sendCourseForm, initialState);
   const formRef = useRef<HTMLFormElement>(null);
+  const [isAgreed, setIsAgreed] = useState(true);
 
   const courses = [
-    { value: "my-work-my-dream", label: "Моя робота — моя мрія" },
-    { value: "food-floristry", label: "Food-флористика" },
-    { value: "floristry", label: "Флористика" },
-    { value: "business-management", label: "Ведення бізнесу" },
+    { value: 'my-work-my-dream', label: 'Моя робота — моя мрія' },
+    { value: 'food-floristry', label: 'Food-флористика' },
+    { value: 'floristry', label: 'Флористика' },
+    { value: 'business-management', label: 'Ведення бізнесу' },
   ];
 
-  const [selectedCourse, setSelectedCourse] = useState("");
-  const [selectedCourseLabel, setSelectedCourseLabel] = useState("");
+  const [selectedCourse, setSelectedCourse] = useState('');
+  const [selectedCourseLabel, setSelectedCourseLabel] = useState('');
   const [courseTouched, setCourseTouched] = useState(false);
 
   useEffect(() => {
     if (state.success) {
       formRef.current?.reset();
-      setSelectedCourse("");
-      setSelectedCourseLabel("");
+      setSelectedCourse('');
+      setSelectedCourseLabel('');
       setCourseTouched(false);
       onSuccess();
     }
@@ -46,8 +48,8 @@ export default function CourseForm({ onSuccess }: CourseFormProps) {
 
   const handleCourseChange = (val: string) => {
     setSelectedCourse(val);
-    const option = courses.find((c) => c.value === val);
-    setSelectedCourseLabel(option?.label || "");
+    const option = courses.find(c => c.value === val);
+    setSelectedCourseLabel(option?.label || '');
   };
 
   return (
@@ -61,7 +63,7 @@ export default function CourseForm({ onSuccess }: CourseFormProps) {
           <FormInput
             name="name"
             placeholder="Ім'я"
-            error={state.errors?.name?.join(", ")}
+            error={state.errors?.name?.join(', ')}
           />
 
           <FormInput name="surname" placeholder="Прізвище" />
@@ -69,7 +71,7 @@ export default function CourseForm({ onSuccess }: CourseFormProps) {
           <FormInput
             name="phone"
             placeholder="Телефон"
-            error={state.errors?.phone?.join(", ")}
+            error={state.errors?.phone?.join(', ')}
           />
 
           <FormSelect
@@ -79,7 +81,7 @@ export default function CourseForm({ onSuccess }: CourseFormProps) {
             onChange={handleCourseChange}
             onBlur={() => setCourseTouched(true)}
             options={courses}
-            error={state.errors?.course?.join(", ")}
+            error={state.errors?.course?.join(', ')}
             touched={courseTouched}
           />
         </div>
@@ -92,15 +94,55 @@ export default function CourseForm({ onSuccess }: CourseFormProps) {
         />
       </div>
 
+      <div
+        className="flex items-center justify-center gap-3 mt-2 cursor-pointer select-none"
+        onClick={() => setIsAgreed(!isAgreed)}
+      >
+        <div
+          className={`
+            mt-1 min-w-[20px] h-5 border-2 rounded-md flex items-center justify-center transition-all duration-200
+            ${isAgreed ? 'bg-[#1C686D] border-[#1C686D]' : 'bg-transparent border-[#9DC6C9]'}
+          `}
+        >
+          {isAgreed && (
+            <svg
+              width="12"
+              height="10"
+              viewBox="0 0 12 10"
+              fill="none"
+              xmlns="http://w3.org"
+            >
+              <path
+                d="M1 5L4.5 8.5L11 1.5"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          )}
+        </div>
+        <p className="text-[14px] leading-tight text-[#4A4A4A] lg:text-[16px]">
+          Я погоджуюся з{' '}
+          <Link
+            href="/privacy-policy"
+            className="underline hover:text-[#1C686D] transition-colors"
+            onClick={e => e.stopPropagation()}
+          >
+            Політикою конфіденційності
+          </Link>
+        </p>
+      </div>
+
       {state.error && (
         <p className="text-error text-center pt-2">{state.error}</p>
       )}
 
       <Button
-        disabled={pending}
+        disabled={pending || !isAgreed} 
         className="w-full mt-8 mb-20 lg:mt-10 lg:mb-45  lg:mx-auto lg:max-w-103"
       >
-        {pending ? "Відправка..." : "Хочу творити разом"}
+        {pending ? 'Відправка...' : 'Хочу творити разом'}
       </Button>
     </form>
   );
