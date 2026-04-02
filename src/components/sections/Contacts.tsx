@@ -57,7 +57,7 @@ const Contacts = () => {
             </div>
 
             <div className="flex items-center gap-8 mt-2">
-              <a href="#" aria-label="Instagram" className={socialIconStyles}>
+              <a href="https://www.instagram.com/with_tasty_k?igsh=aHV2YWJyb2wxbThy" aria-label="Instagram" className={socialIconStyles}>
                 <svg
                   width="50"
                   height="50"
@@ -78,7 +78,7 @@ const Contacts = () => {
                 </svg>
               </a>
 
-              <a href="#" aria-label="Facebook" className={socialIconStyles}>
+              <a href="https://www.facebook.com/share/14YT5fHMW4o/?mibextid=wwXIfr" aria-label="Facebook" className={socialIconStyles}>
                 <svg
                   width="30"
                   height="30"

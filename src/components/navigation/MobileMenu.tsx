@@ -92,7 +92,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
 
       <div className="flex items-center justify-center gap-8 pb-14">
         <a
-          href="#"
+          href="https://www.instagram.com/with_tasty_k?igsh=aHV2YWJyb2wxbThy"
           aria-label="Instagram"
           className='p-2.5'
         >
@@ -116,7 +116,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
           </svg>
         </a>
         <a
-          href="#"
+          href="https://www.facebook.com/share/14YT5fHMW4o/?mibextid=wwXIfr"
           aria-label="Facebook"
         >
           <svg
