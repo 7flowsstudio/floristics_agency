@@ -1,20 +1,20 @@
-import Image from "next/image";
-import Container from "../layout/Container";
-import Button from "../ui/Button";
-import SectionSubheading from "../ui/SectionSubheading";
-import SectionHeading from "../ui/SectionHeading";
+import Image from 'next/image';
+import Container from '../layout/Container';
+import Button from '../ui/Button';
+import SectionSubheading from '../ui/SectionSubheading';
+import SectionHeading from '../ui/SectionHeading';
 
 const About = () => {
   return (
-    <Container className="pt-[105px] lg:pt-[160px]">
-      <div className="pt-20 md:pt-0">
+    <section id="more">
+      <Container className="pt-[60px] md:pt-[100px] lg:pt-[160px]">
         <div className="flex flex-col min-[1000px]:grid min-[1000px]:grid-cols-2 min-[1000px]:grid-rows-[auto_auto] min-[1000px]:gap-x-[125px]">
           <div className="flex flex-col justify-start md:row-start-1 md:col-start-2">
-            <SectionHeading className="text-[#2D1106] font-medium text-[24px] leading-[100%] tracking-[0.01em] pb-[8px] min-[1000px]:pb-[16px]">
+            <SectionHeading className="text-[#2D1106] font-medium md:text-left text-[24px] leading-[100%] tracking-[0.01em] pb-[8px] min-[1000px]:pb-[16px]">
               Про студію “With taste”
             </SectionHeading>
-            <SectionSubheading className="text-left pb-[24px] min-[1000px]:pb-[40px]">
-              У студії «With Taste» ми поєднуємо квіти, мистецтво та натхнення.{" "}
+            <SectionSubheading className="text-center md:text-left pb-[24px] min-[1000px]:pb-[40px]">
+              У студії «With Taste» ми поєднуємо квіти, мистецтво та натхнення.{' '}
               <br />
               Тут народжуються ідеї, оживають квіти та кожен знаходить свій шлях
               до творчості.
@@ -24,37 +24,32 @@ const About = () => {
               iconSrc="/arrow-right.svg"
               variant="outline"
               iconPosition="right"
+              href="/history"
             >
               Більше про студію
             </Button>
           </div>
 
           <div className="relative min-[1000px]:grid min-[1000px]:grid-cols-1">
-            <div
-              className="relative  w-full
-  max-w-[337px]
-  md:max-w-[631px]
-  h-[277px]
-  md:h-[520px] rounded-[16px] overflow-hidden md:row-start-1 md:col-start-1 mx-auto"
-            >
+            <div className="relative w-full md:max-w-[631px] h-[277px] md:h-[520px] rounded-sm md:rounded-[16px] overflow-hidden md:row-start-1 md:col-start-1 mx-auto">
               <div className="w-full h-full relative z-20">
                 <Image
                   src="/img/about/aboutfirst.webp"
                   alt="workshop"
                   fill
-                  style={{ objectFit: "cover" }}
+                  className="object-cover"
                   priority={false}
                   loading="lazy"
                 />
               </div>
             </div>
-            <div className="relative min-[1000px]:-mt-[170px] min-[1000px]:ml-[420px] w-full max-w-[337px] md:max-w-[628px] h-[213px] md:h-[396px] rounded-[16px] overflow-hidden md:col-span-2 mt-4 mx-auto">
+            <div className="relative min-[1000px]:-mt-[170px] min-[1000px]:ml-[420px] w-full md:max-w-[628px] h-[213px] md:h-[396px] rounded-sm md:rounded-[16px] overflow-hidden md:col-span-2 mt-4 mx-auto">
               <div className="w-full h-full relative z-10">
                 <Image
                   src="/img/about/aboutsec.webp"
                   alt="workshop"
                   fill
-                  style={{ objectFit: "cover" }}
+                  className="object-cover"
                   priority={false}
                   loading="lazy"
                 />
@@ -62,7 +57,7 @@ const About = () => {
             </div>
           </div>
           <Button
-            className="w-full max-w-[336px] mx-auto mt-[32px] min-[1000px]:hidden"
+            className="w-full md:max-w-[336px] mx-auto mt-[32px] min-[1000px]:hidden"
             iconSrc="/arrow-right.svg"
             variant="outline"
             iconPosition="right"
@@ -70,8 +65,8 @@ const About = () => {
             Більше про студію
           </Button>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </section>
   );
 };
 export default About;
