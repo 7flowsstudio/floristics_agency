@@ -1,5 +1,5 @@
 export const footerLinks = [
-  { href: '/', label: 'Головна' },
+  { href: '/#hero', label: 'Головна' },
   { href: '/about', label: 'Про мене' },
   { href: '/courses', label: 'Курси' },
   { href: '/history', label: 'Трішки історії' },

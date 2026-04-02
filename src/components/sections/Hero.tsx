@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <div className="relative w-full overflow-hidden">
+    <div id='#hero' className="relative w-full overflow-hidden">
       <div className="absolute inset-0 md:hidden z-0">
         <Image
           src="/img/hero/moblast.webp"
