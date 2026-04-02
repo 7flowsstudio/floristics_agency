@@ -93,7 +93,7 @@ const Contacts = () => {
                 </svg>
               </a>
 
-              <a href="#" aria-label="Telegram" className={socialIconStyles}>
+              <a href="https://t.me/+JsAPy-yAXAg0ZTMy" aria-label="Telegram" className={socialIconStyles}>
                 <svg
                   width="60"
                   height="60"

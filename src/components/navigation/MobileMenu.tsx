@@ -133,7 +133,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
           </svg>
         </a>
         <a
-          href="#"
+          href="https://t.me/+JsAPy-yAXAg0ZTMy"
           aria-label="Telegram"
         >
           <svg
