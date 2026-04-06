@@ -13,6 +13,7 @@ import {
 } from "@/data/floristic";
 import { useState } from "react";
 import Button from "@/components/ui/Button";
+import { motion } from "framer-motion";
 
 export type BigCourseSliderItem = {
   id: string;
@@ -34,7 +35,12 @@ const FloristicsPage = () => {
         З нуля до впевненого створення букетів
       </p>
       <div className="flex flex-col md:flex-row gap-[65px] pb-[60px] md:pb-[80px]">
-        <div className="md:w-1/2">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="md:w-1/2"
+        >
           <div className="">
             <Slider<BigCourseSliderItem>
               items={items}
@@ -66,8 +72,9 @@ const FloristicsPage = () => {
             Для тих, хто хоче навчитися створювати стильні букети та розуміти
             флористику
           </p>
-        </div>
-        <div className="md:w-1/2 flex flex-col items-center md:justify-end md:items-start">
+        </motion.div>
+
+        <div className="md:w-1/2 flex flex-col items-center md:justify-center md:items-start">
           <div className="max-w-[412px]">
             <h3 className="text-[#2D1106] text-[20px] pb-[24px] md:text-[32px] text-center md:text-left">
               Для кого цей курс
@@ -101,7 +108,7 @@ const FloristicsPage = () => {
           </div>
         </div>
       </div>
-      <div className="w-full flex flex-col items-center pt-[32px] md:pt-[48px] bg-[#ECE9E3] mb-[40px]">
+      <div className="w-full flex flex-col items-center pt-[32px] md:pt-[48px] bg-[#ECE9E3] mb-[60px] md:mb-[100px] lg:mb-[180px]">
         <h3 className="text-[#2D1106] text-[20px] pb-[20px] md:pb-[48px] md:text-[32px] text-center md:text-left">
           Обери зручний формат
         </h3>

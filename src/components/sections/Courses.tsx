@@ -86,7 +86,7 @@ const Courses = () => {
         {items.slice(-3).map((item) => (
           <div
             key={item.id}
-            className="relative hover:shadow-[0px_0px_7.2px_3px_#9DC6C9BF] transition-all duration-300 ease-out"
+            className="relative rounded-lg hover:shadow-[0px_0px_7.2px_3px_#9DC6C9BF] active:border-2 active:border-[#1C686D] transition-all duration-300 ease-out"
           >
             {item.imageUrl && (
               <div className="w-full h-[440px] relative rounded-lg overflow-hidden gradient-image-overlay">

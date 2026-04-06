@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Container from "@/components/layout/Container";
 import Accordion from "@/components/ui/Accordion";
@@ -6,9 +6,14 @@ import Button from "@/components/ui/Button";
 import Slider from "@/components/ui/Slider";
 import Text from "@/components/ui/Text";
 import { foodFlCourseAcc } from "@/data/accordion/foodFlCourseAcc";
-import { foodFlCourse, foodFlCourseAudience, foodFlCourseList } from "@/data/foodFl";
+import {
+  foodFlCourse,
+  foodFlCourseAudience,
+  foodFlCourseList,
+} from "@/data/foodFl";
 import clsx from "clsx";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export type FoodFlCourseSliderItem = {
   id: string;
@@ -16,12 +21,12 @@ export type FoodFlCourseSliderItem = {
 };
 
 const FoodFlCoursePage = () => {
-      const items: FoodFlCourseSliderItem[] = foodFlCourse.map((c, index) => ({
-        id: c.id.toString(),
-        imageUrl: c.img,
-      }));
-    return (
-        <Container className="pt-[100px] md:pt-[200px]">
+  const items: FoodFlCourseSliderItem[] = foodFlCourse.map((c, index) => ({
+    id: c.id.toString(),
+    imageUrl: c.img,
+  }));
+  return (
+    <Container className="pt-[100px] md:pt-[200px]">
       <h2 className="text-[#1C686D] text-[24px] font-medium pb-[8px] md:pb-[16px] md:text-[40px] text-center">
         Базовий курс з Food-Флористики
       </h2>
@@ -29,7 +34,12 @@ const FoodFlCoursePage = () => {
         Як однієї з форм мистецтва
       </p>
       <div className="flex flex-col md:flex-row gap-[65px]">
-        <div className="md:w-1/2">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="md:w-1/2"
+        >
           <div className="">
             <Slider<FoodFlCourseSliderItem>
               items={items}
@@ -60,7 +70,7 @@ const FoodFlCoursePage = () => {
           <p className="text-center text-[#1C686D] text-[18px] md:text-[24px] italic pt-[32px] pb-[60px] md:pt-[16px] md:pb-[0px]">
             Авторський курс зі створення їстівних композицій
           </p>
-        </div>
+        </motion.div>
         <div className="md:w-1/2 flex flex-col items-center md:justify-end md:items-start">
           <div className="max-w-[412px]">
             <h3 className="text-[#2D1106] text-[20px] pb-[24px] md:text-[32px] text-center md:text-left">
@@ -117,7 +127,7 @@ const FoodFlCoursePage = () => {
           }))}
         />
       </div>
-      <div className="flex flex-col items-center pb-[180px]">
+      <div className="flex flex-col items-center pb-[60px] md:pb-[100px] lg:pb-[180px]">
         <div>
           <p className="text-[20px] font-medium md:text-[24px] pt-[24px] md:pt-[48px] pb-[40px] md:pb-[48px]">
             Вартість курсу:
@@ -129,6 +139,7 @@ const FoodFlCoursePage = () => {
           Обрати цей курс
         </Button>
       </div>
-    </Container>)
-}
-export default FoodFlCoursePage
+    </Container>
+  );
+};
+export default FoodFlCoursePage;

@@ -8,6 +8,7 @@ import { bigCourseAcc } from "@/data/accordion/bigCourseAcc";
 import { bigCourse, bigCourseAudience, bigCourseList } from "@/data/bigCourse";
 import clsx from "clsx";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export type BigCourseSliderItem = {
   id: string;
@@ -27,8 +28,14 @@ const BigCoursePage = () => {
       <p className="text-[18px] pb-[24px] md:pb-[30px] md:text-[22px] text-center">
         Від творчості до власної справи
       </p>
+
       <div className="flex flex-col md:flex-row gap-[65px]">
-        <div className="md:w-1/2">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="md:w-1/2"
+        >
           <div className="">
             <Slider<BigCourseSliderItem>
               items={items}
@@ -59,7 +66,8 @@ const BigCoursePage = () => {
           <p className="text-center text-[#1C686D] text-[18px] md:text-[24px] italic pt-[32px] pb-[60px] md:pt-[16px] md:pb-[0px]">
             Коли творчість стає справою життя
           </p>
-        </div>
+        </motion.div>
+
         <div className="md:w-1/2 flex flex-col items-center md:justify-end md:items-start">
           <div className="max-w-[412px]">
             <h3 className="text-[#2D1106] text-[20px] pb-[24px] md:text-[32px] text-center md:text-left">
@@ -94,6 +102,7 @@ const BigCoursePage = () => {
           </div>
         </div>
       </div>
+
       <div className="w-full flex flex-col items-center pt-[60px] md:pt-[96px]">
         <h3 className="text-[#2D1106] text-[20px] pb-[20px] md:pb-[48px] md:text-[32px] text-center md:text-left">
           Програма курсу
@@ -123,7 +132,7 @@ const BigCoursePage = () => {
           }))}
         />
       </div>
-      <div className="flex flex-col items-center pb-[180px]">
+      <div className="flex flex-col items-center pb-[60px] md:pb-[100px] lg:pb-[180px]">
         <ul className="pt-[24px] pb-[24px] md:pt-[48px]">
           <li className="text-[18px] md:text-[20px]">Формат: онлайн</li>
           <li className="text-[18px] md:text-[20px]">Доступ: 6 місяців</li>
