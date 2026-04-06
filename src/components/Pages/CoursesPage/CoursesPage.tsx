@@ -42,7 +42,7 @@ const CoursesPage = () => {
   bg-cover
   [@media(max-width:767px)]:h-[90vh]
   md:h-[819px]
-  md:[background-image:linear-gradient(180.06deg,rgba(247,245,243,0.7)_0.05%,#F7F5F3_99.95%),url('/img/courses/backgr.webp')]
+  md:[background-image:linear-gradient(180.06deg,rgba(247,245,243,0.6)_0.05%,#F7F5F3_89.95%),url('/img/courses/backgr.webp')]
   md:top-0 md:left-0
   "
       >
@@ -91,7 +91,7 @@ const CoursesPage = () => {
             <div
               key={item.id}
               className={`
-      relative max-w-[412px] rounded-lg overflow-hidden
+      relative max-w-[412px] rounded-lg overflow-hidden hover:shadow-[0px_0px_7.2px_3px_#9DC6C9BF] transition-all duration-300 ease-out
       ${item.id === "1" ? "border-[2px] border-[#1C686D]" : ""}
     `}
             >

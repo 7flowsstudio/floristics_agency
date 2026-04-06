@@ -84,7 +84,10 @@ const Courses = () => {
 
       <div className="hidden [@media(min-width:944px)]:grid md:grid-cols-3 md:gap-8">
         {items.slice(-3).map((item) => (
-          <div key={item.id} className="relative">
+          <div
+            key={item.id}
+            className="relative hover:shadow-[0px_0px_7.2px_3px_#9DC6C9BF] transition-all duration-300 ease-out"
+          >
             {item.imageUrl && (
               <div className="w-full h-[440px] relative rounded-lg overflow-hidden gradient-image-overlay">
                 <Image

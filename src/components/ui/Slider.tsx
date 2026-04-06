@@ -35,10 +35,14 @@ function Slider<T>({
   const updatePages = () => {
     if (!containerRef.current) return;
     const container = containerRef.current;
+
     const slideWidth = container.firstElementChild?.clientWidth || 1;
-    const containerWidth = container.clientWidth;
-    const visibleSlides = Math.floor(containerWidth / (slideWidth + gap));
-    setPages(Math.max(items.length - visibleSlides + 1, 1));
+    const step = slideWidth + gap;
+
+    const maxScrollLeft = container.scrollWidth - container.clientWidth;
+
+    const pagesCount = Math.floor((maxScrollLeft + 1) / step) + 1;
+    setPages(pagesCount);
   };
 
   const handleScroll = () => {
