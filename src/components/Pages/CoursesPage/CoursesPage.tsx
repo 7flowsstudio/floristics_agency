@@ -43,7 +43,7 @@ const CoursesPage = () => {
   bg-cover
   [@media(max-width:767px)]:h-[90vh]
   md:h-[819px]
-  md:[background-image:linear-gradient(180.06deg,rgba(247,245,243,0.6)_0.05%,#F7F5F3_89.95%),url('/img/courses/backgr.webp')]
+  md:[background-image:linear-gradient(180.06deg,rgba(247,245,243,0.4)_0.05%,#F7F5F3_89.95%),url('/img/courses/backgr.webp')]
   md:top-0 md:left-0
   "
       >

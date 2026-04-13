@@ -29,7 +29,7 @@ function Form({ heading = "Готові творити з нами?", subheading
   };
 
   return (
-    <Container className="mt-[60px] lg:mt-40">
+    <Container id="form" className="mt-[60px] lg:mt-40">
       <SectionHeading className="pb-2 px-8 lg:w-full">{heading}</SectionHeading>
       {subheading && <SectionSubheading>{subheading}</SectionSubheading>}
 
