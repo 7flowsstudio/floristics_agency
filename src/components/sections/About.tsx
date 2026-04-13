@@ -61,6 +61,7 @@ const About = () => {
             iconSrc="/arrow-right.svg"
             variant="outline"
             iconPosition="right"
+            href="/history"
           >
             Більше про студію
           </Button>

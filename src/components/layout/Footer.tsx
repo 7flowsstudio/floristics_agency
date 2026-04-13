@@ -64,7 +64,7 @@ const Footer = () => {
 
         <div className="flex flex-col pt-8 gap-2 items-center text-[16px] text-greyNormalActive md:pt-20">
           <a
-            href="https://7flowsstudio.vercel.app/uk"
+            href="https://7flows.studio/uk"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2.25 transition-colors duration-300 hover:text-primary"

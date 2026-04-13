@@ -6,7 +6,7 @@ import CallToAction from '@/components/sections/CallToAction';
 
 const page = () => {
   return (
-    <div className="pt-28.75 pb-18 lg:pt-0">
+    <div className="pt-28.75 lg:pt-0">
       <SectionHeading className="font-secondary text-primary text-[36px] md:text-[42px] lg:text-[64px] leading-10 max-w-67.25 mx-auto mb-10 lg:hidden">
         Історії наших учнів та учениць
       </SectionHeading>

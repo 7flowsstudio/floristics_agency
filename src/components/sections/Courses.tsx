@@ -64,7 +64,7 @@ const Courses = () => {
               {item.isBestseller && <BestsellerBadge />}
 
               {item.title && (
-                <p className="w-full absolute text-center bottom-[50px] z-20 font-medium text-xl">
+                <p className="w-full absolute text-center bottom-[50px] z-20 font-medium text-xl hover:text-primary">
                   {item.title}
                 </p>
               )}
@@ -84,9 +84,9 @@ const Courses = () => {
 
       <div className="hidden [@media(min-width:944px)]:grid md:grid-cols-3 md:gap-8">
         {items.slice(-3).map((item) => (
-          <div
+          <Link href={item.url}
             key={item.id}
-            className="relative rounded-lg hover:shadow-[0px_0px_7.2px_3px_#9DC6C9BF] active:border-2 active:border-[#1C686D] transition-all duration-300 ease-out"
+            className="group relative rounded-lg hover:shadow-[0px_0px_7.2px_3px_#9DC6C9BF] hover:-translate-y-0.5 active:border-2 active:border-[#1C686D] transition-all duration-300 ease-out"
           >
             {item.imageUrl && (
               <div className="w-full h-[440px] relative rounded-lg overflow-hidden gradient-image-overlay">
@@ -98,16 +98,15 @@ const Courses = () => {
                 />
               </div>
             )}
-            <p className="w-full absolute text-center bottom-[50px] z-20 font-medium text-xl">
+            <p className="w-full absolute text-center bottom-[50px] z-20 font-medium text-xl transition-colors duration-300 group-hover:text-primary">
               {item.title}
             </p>
-            <Link
-              href={item.url}
+            <div
               className="absolute left-1/2 -translate-x-1/2 bottom-[20px] z-20 underline underline-offset-4"
             >
               {item.link}
-            </Link>
-          </div>
+            </div>
+          </Link>
         ))}
       </div>
       <div className="hidden md:flex mx-auto mt-10 max-w-[412px]">
