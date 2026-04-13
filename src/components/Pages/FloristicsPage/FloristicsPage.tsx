@@ -165,6 +165,7 @@ const FloristicsPage = () => {
           )}
         </div>
         <Button
+          href="/#form"
           className="w-full max-w-[412px] mt-[88px] md:mt-[48px] mb-[40px]"
           variant="primary"
         >

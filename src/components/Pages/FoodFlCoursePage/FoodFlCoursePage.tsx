@@ -135,7 +135,11 @@ const FoodFlCoursePage = () => {
           </p>
         </div>
 
-        <Button className="w-full max-w-[412px]" variant="primary">
+        <Button
+          href="/#form"
+          className="w-full max-w-[412px]"
+          variant="primary"
+        >
           Обрати цей курс
         </Button>
       </div>
