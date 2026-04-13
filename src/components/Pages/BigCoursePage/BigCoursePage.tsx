@@ -23,7 +23,7 @@ const BigCoursePage = () => {
   return (
     <Container className="pt-[100px] md:pt-[200px]">
       <h2 className="text-[#1C686D] text-[24px] font-medium pb-[8px] md:pb-[16px] md:text-[40px] text-center">
-        Food-Флористика: Від ідеї до бізнесу
+        Моя робота — моя мрія
       </h2>
       <p className="text-[18px] pb-[24px] md:pb-[30px] md:text-[22px] text-center">
         Від творчості до власної справи
@@ -139,7 +139,7 @@ const BigCoursePage = () => {
         </ul>
         <div>
           <p className="text-[20px] font-medium md:text-[24px]">
-            Вартість повного курсу:
+            Вартість повного курсу:{' '}
             <span className="line-through">2 617 грн</span>
           </p>
           <p className="text-[20px] font-medium text-center md:text-[24px]">
@@ -150,11 +150,7 @@ const BigCoursePage = () => {
           Обери той мікс опційних курсів, що цікавить саме тебе!
         </p>
 
-        <Button
-          href="/#form"
-          className="w-full max-w-[412px]"
-          variant="primary"
-        >
+        <Button href='/#form' className="w-full max-w-[412px]" variant="primary">
           Обрати цей курс
         </Button>
       </div>
