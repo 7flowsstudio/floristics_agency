@@ -4,6 +4,7 @@ import { FC } from 'react';
 import SectionHeading from '@/components/ui/SectionHeading';
 import Slider from '@/components/ui/Slider';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export type SliderItem = {
   id: string;
@@ -19,15 +20,28 @@ interface SliderWithInfoProps {
 
 const SliderWithInfo: FC<SliderWithInfoProps> = ({ heading, items }) => {
   return (
-    <div className="pt-[105px] lg:pt-[160px]">
-      <SectionHeading className="font-secondary text-primary text-[36px] md:text-[42px] lg:text-[64px] leading-10">
-        {heading}
-      </SectionHeading>
+    <div className="pt-[105px] lg:pt-[160px] overflow-x-hidden">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        <SectionHeading className="font-secondary text-primary text-[36px] md:text-[42px] lg:text-[64px] leading-10">
+          {heading}
+        </SectionHeading>
+      </motion.div>
 
-      <div className="pt-[40px] px-[20px] md:px-0 relative">
+      <motion.div
+        initial={{ opacity: 0, x: 100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 1, ease: 'easeOut', delay: 0.1 }}
+        className="pt-[40px] px-[20px] md:px-0 relative"
+      >
         {/* LEFT gradient */}
         <div
-          className="pointer-events-none absolute left-0 top-0 h-full w-[240px] z-80 hidden md:block"
+          className="pointer-events-none absolute left-0 top-0 h-full w-[240px] z-20 hidden md:block"
           style={{
             background:
               'linear-gradient(270deg, rgba(247,245,243,0) 0%, #F7F5F3 100%)',
@@ -62,17 +76,17 @@ const SliderWithInfo: FC<SliderWithInfoProps> = ({ heading, items }) => {
 
               <div className="flex flex-col gap-2 bg-card px-[29px] py-[16px] md:w-[433px] rounded h-full lg:px-[46px] lg:py-[32px]">
                 {item.title && (
-                  <p className="text-xl lg:text-[28px]">
-                    {item.title}
-                  </p>
+                  <p className="text-xl lg:text-[28px]">{item.title}</p>
                 )}
 
                 {item.text.map((line, i) => {
                   if (Array.isArray(line)) {
                     return (
-                      <ul key={i} className="pl-5 mb-2">
+                      <ul key={i} className="pl-5 mb-2 list-disc">
                         {line.map((li, j) => (
-                          <li className="text-base lg:text-[20px]" key={j}>{li}</li>
+                          <li className="text-base lg:text-[20px]" key={j}>
+                            {li}
+                          </li>
                         ))}
                       </ul>
                     );
@@ -90,13 +104,13 @@ const SliderWithInfo: FC<SliderWithInfoProps> = ({ heading, items }) => {
 
         {/* RIGHT gradient */}
         <div
-          className="pointer-events-none absolute right-0 top-0 h-full w-[240px] z-80 hidden md:block"
+          className="pointer-events-none absolute right-0 top-0 h-full w-[240px] z-20 hidden md:block"
           style={{
             background:
               'linear-gradient(90deg, rgba(247,245,243,0) 0%, #F7F5F3 100%)',
           }}
         />
-      </div>
+      </motion.div>
     </div>
   );
 };
