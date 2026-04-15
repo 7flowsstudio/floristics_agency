@@ -23,7 +23,7 @@ const BigCoursePage = () => {
   return (
     <Container className="pt-[100px] md:pt-[200px]">
       <h2 className="text-[#1C686D] text-[24px] font-medium pb-[8px] md:pb-[16px] md:text-[40px] text-center">
-        Моя робота — моя мрія
+        Food-Флористика: Від ідеї до бізнесу
       </h2>
       <p className="text-[18px] pb-[24px] md:pb-[30px] md:text-[22px] text-center">
         Від творчості до власної справи

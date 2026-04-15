@@ -1,32 +1,53 @@
+'use client';
 import SectionHeading from '@/components/ui/SectionHeading';
 import StoryBlock from '@/components/sections/StoryBlock';
 import { stories } from '@/data/stories';
 import GoogleComments from '@/components/sections/GoogleComments';
 import CallToAction from '@/components/sections/CallToAction';
+import Slider from '@/components/ui/Slider'; // Імпортуємо ваш Slider
 
 const page = () => {
   return (
     <div className="pt-28.75 lg:pt-0">
-      <SectionHeading className="font-secondary text-primary text-[36px] md:text-[42px] lg:text-[64px] leading-10 max-w-67.25 mx-auto mb-10 lg:hidden">
-        Історії наших учнів та учениць
-      </SectionHeading>
-      <div className="flex flex-col gap-17.25 lg:gap-0">
+      {/* MOBILE SLIDER SECTION */}
+      <div className="lg:hidden">
+        <SectionHeading className="font-secondary text-primary text-[36px] leading-10 text-center mb-8 px-5">
+          Історії наших учнів та учениць
+        </SectionHeading>
+
+        <div className="bg-card pt-8 pb-12">
+          <Slider
+            items={stories}
+            gap={20}
+            containerClassName="px-5"
+            renderCard={(story, index) => (
+              <div key={index} className="flex-shrink-0 w-[calc(100vw-40px)]">
+                <StoryBlock
+                  imageSrc={story.image}
+                  imageAlt={story.alt}
+                  testimonial={story.text}
+                  isMobileCard={true}
+                />
+              </div>
+            )}
+          />
+        </div>
+      </div>
+
+      {/* DESKTOP BLOCKS SECTION */}
+      <div className="hidden lg:flex flex-col">
         {stories.map((story, i) => (
           <StoryBlock
-            key={story.image}
+            key={i}
             imageSrc={story.image}
             imageAlt={story.alt}
             testimonial={story.text}
             reverse={i % 2 !== 0}
             showHeading={i === 0}
-            paddingX={
-              i === 0
-                ? { md: 'px-[40px]', lg: 'px-[200px]' }
-                : { md: 'px-[60px]', lg: 'px-[105px]' }
-            }
           />
         ))}
       </div>
+
       <GoogleComments />
       <CallToAction
         sectionClassName="pt-[104px] lg:pt-[160px] mx-auto"

@@ -1,5 +1,4 @@
 'use client';
-
 import Image from 'next/image';
 import Container from '../layout/Container';
 import SectionHeading from '../ui/SectionHeading';
@@ -12,6 +11,7 @@ type StoryBlockProps = {
   reverse?: boolean;
   showHeading?: boolean;
   paddingX?: { md?: string; lg?: string };
+  isMobileCard?: boolean; // Додано для слайдера
 };
 
 function StoryBlock({
@@ -21,45 +21,44 @@ function StoryBlock({
   reverse = false,
   showHeading = false,
   paddingX = { md: 'px-[40px]', lg: 'px-[200px]' },
+  isMobileCard = false,
 }: StoryBlockProps) {
 
   const imageDirection = reverse ? 100 : -100;
   const textDirection = reverse ? -100 : 100;
 
-  return (
-    <>
-
-      <div className="lg:hidden">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="bg-card h-full max-w-131.25 mx-auto px-5 pt-8 pb-12 relative overflow-hidden"
-        >
+  // Якщо це картка в мобільному слайдері
+  if (isMobileCard) {
+    return (
+      <div className="bg-[#ECE9E3] rounded-lg overflow-hidden flex flex-col h-full">
+        <div className="relative w-full h-[400px]">
           <Image
-            className="max-h-113.25 w-full object-cover rounded-lg"
-            width={336}
-            height={453}
-            alt={imageAlt}
             src={imageSrc}
+            alt={imageAlt}
+            fill
+            className="object-cover object-top"
           />
-          <div className="absolute left-0 right-0 bottom-0 h-[48%] bg-[linear-gradient(180deg,rgba(236,233,227,0)_0%,rgba(236,233,227,0.6)_40%,#ECE9E3_100%)] pointer-events-none" />
-          <div className="absolute left-0 right-0 bottom-0 z-10 flex items-end">
-            <div className="w-full backdrop-blur-[2px] px-6 pb-4">
-              <div className="italic text-sm leading-5 sm:text-base sm:leading-6 space-y-3">
-                {testimonial.map((paragraph, index) => (
-                  <p key={index} className="mb-2 lg:text-[24px]">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            </div>
+          <div 
+            className="absolute inset-x-0 bottom-0 h-[120px]" 
+            style={{
+              background: 'linear-gradient(180deg, rgba(236, 233, 227, 0) 0%, #ECE9E3 100%)'
+            }}
+          />
+        </div>
+        <div className="px-6 pb-2 pt-2 text-left">
+          <div className="space-y-4 text-[#1C1C1C] text-[16px] leading-[1.4] italic">
+            {testimonial.map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
           </div>
-        </motion.div>
+        </div>
       </div>
+    );
+  }
 
-      <Container
+  // Десктопна версія (залишається вашою)
+  return (
+    <Container
         className={`w-full hidden lg:flex pt-40 items-center overflow-hidden ${
           reverse ? 'flex-row-reverse' : ''
         }`}
@@ -126,7 +125,6 @@ function StoryBlock({
           </motion.div>
         </div>
       </Container>
-    </>
   );
 }
 
