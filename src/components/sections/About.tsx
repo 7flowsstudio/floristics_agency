@@ -6,8 +6,8 @@ import SectionHeading from '../ui/SectionHeading';
 
 const About = () => {
   return (
-    <section id="more">
-      <Container className="pt-[60px] md:pt-[100px] lg:pt-[160px]">
+    <section id="more" className='pt-[60px] md:pt-[100px] lg:pt-[160px] scroll-mt-20 md:scroll-mt-10 lg:scroll-mt-15'>
+      <Container>
         <div className="flex flex-col min-[1000px]:grid min-[1000px]:grid-cols-2 min-[1000px]:grid-rows-[auto_auto] min-[1000px]:gap-x-[125px]">
           <div className="flex flex-col justify-start md:row-start-1 md:col-start-2">
             <SectionHeading className="text-[#2D1106] font-medium md:text-left text-[24px] leading-[100%] tracking-[0.01em] pb-[8px] min-[1000px]:pb-[16px]">

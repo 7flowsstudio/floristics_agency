@@ -59,6 +59,7 @@ const SliderWithInfo: FC<SliderWithInfoProps> = ({ heading, items }) => {
                 flex-shrink-0
                 w-[calc(100vw-80px)]
                 md:w-[882px]
+                 md:h-[443px] 
                 flex flex-col md:flex-row
                 gap-4
               "
@@ -74,15 +75,15 @@ const SliderWithInfo: FC<SliderWithInfoProps> = ({ heading, items }) => {
                 </div>
               )}
 
-              <div className="flex flex-col gap-2 bg-card px-[29px] py-[16px] md:w-[433px] rounded h-full lg:px-[46px] lg:py-[32px]">
+              <div className="flex flex-col gap-2 bg-card px-[29px] py-[16px] md:w-[433px] rounded h-full lg:px-[46px] lg:py-[32px] overflow-y-auto">
                 {item.title && (
-                  <p className="text-xl lg:text-[28px]">{item.title}</p>
+                  <p className="text-xl lg:text-[24px]">{item.title}</p>
                 )}
 
                 {item.text.map((line, i) => {
                   if (Array.isArray(line)) {
                     return (
-                      <ul key={i} className="pl-5 mb-2 list-disc">
+                      <ul key={i} className="pl-5 mb-2 list-none">
                         {line.map((li, j) => (
                           <li className="text-base lg:text-[20px]" key={j}>
                             {li}

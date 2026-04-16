@@ -1,19 +1,19 @@
-"use client";
-import Container from "@/components/layout/Container";
-import Slider from "@/components/ui/Slider";
-import Image from "next/image";
-import clsx from "clsx";
-import Text from "@/components/ui/Text";
+'use client';
+import Container from '@/components/layout/Container';
+import Slider from '@/components/ui/Slider';
+import Image from 'next/image';
+import clsx from 'clsx';
+import Text from '@/components/ui/Text';
 import {
   floristic,
   floristicAudience,
   floristicList,
   offline,
   online,
-} from "@/data/floristic";
-import { useState } from "react";
-import Button from "@/components/ui/Button";
-import { motion } from "framer-motion";
+} from '@/data/floristic';
+import { useState } from 'react';
+import Button from '@/components/ui/Button';
+import { motion } from 'framer-motion';
 
 export type BigCourseSliderItem = {
   id: string;
@@ -25,7 +25,7 @@ const FloristicsPage = () => {
     id: c.id.toString(),
     imageUrl: c.img,
   }));
-  const [active, setActive] = useState("online");
+  const [active, setActive] = useState('online');
   return (
     <Container className="pt-[100px] md:pt-[200px]">
       <h2 className="text-[#1C686D] text-[24px] font-medium pb-[8px] md:pb-[16px] md:text-[40px] text-center">
@@ -38,7 +38,7 @@ const FloristicsPage = () => {
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          transition={{ duration: 1, ease: 'easeOut' }}
           className="md:w-1/2"
         >
           <div className="">
@@ -50,17 +50,17 @@ const FloristicsPage = () => {
                 <div
                   key={item.id}
                   className={clsx(
-                    "flex-shrink-0 rounded-lg overflow-hidden relative",
-                    "min-w-[320px] md:min-w-[408px] [@media(max-width:374px)]:min-w-[280px]",
+                    'flex-shrink-0 rounded-lg overflow-hidden relative',
+                    'min-w-[320px] md:min-w-[408px] [@media(max-width:374px)]:min-w-[280px]',
                   )}
                 >
                   {item.imageUrl && (
                     <div className="w-full h-[318px] md:h-[440px] relative rounded">
                       <Image
                         src={item.imageUrl}
-                        alt={"food-floristic"}
+                        alt={'food-floristic'}
                         fill
-                        style={{ objectFit: "cover" }}
+                        style={{ objectFit: 'cover' }}
                       />
                     </div>
                   )}
@@ -108,31 +108,31 @@ const FloristicsPage = () => {
           </div>
         </div>
       </div>
-      <div className="w-full flex flex-col items-center pt-[32px] md:pt-[48px] bg-[#ECE9E3] mb-[60px] md:mb-[100px] lg:mb-[180px]">
+      <section className="w-full flex flex-col items-center pt-[32px] md:pt-[48px] bg-[#ECE9E3] mb-[60px] md:mb-[100px] lg:mb-[180px] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen px-4">
         <h3 className="text-[#2D1106] text-[20px] pb-[20px] md:pb-[48px] md:text-[32px] text-center md:text-left">
           Обери зручний формат
         </h3>
         <div className="w-full max-w-[411px] flex gap-[25px]">
           <Button
             className="w-full"
-            variant={active === "online" ? "primary" : "outline"}
-            onClick={() => setActive("online")}
+            variant={active === 'online' ? 'primary' : 'outline'}
+            onClick={() => setActive('online')}
           >
             Онлайн
           </Button>
 
           <Button
             className="w-full"
-            variant={active === "offline" ? "primary" : "outline"}
-            onClick={() => setActive("offline")}
+            variant={active === 'offline' ? 'primary' : 'outline'}
+            onClick={() => setActive('offline')}
           >
             Офлайн
           </Button>
         </div>
 
         <div className="pt-[48px]">
-          {active === "online" && (
-            <div className="max-w-[338px] flex flex-col justify-center items-center">
+          {active === 'online' && (
+            <div className="max-w-[412px] flex flex-col justify-center items-center">
               <ul className="list-none flex flex-col justify-center gap-[8px] max-w-[412px]">
                 {online.map((text, i) => (
                   <li key={i}>
@@ -145,7 +145,7 @@ const FloristicsPage = () => {
               </p>
             </div>
           )}
-          {active === "offline" && (
+          {active === 'offline' && (
             <div className="max-w-[610px] flex flex-col justify-center items-center">
               <ul className="list-none flex flex-col justify-center gap-[8px] max-w-[610px]">
                 {offline.map((text, i) => (
@@ -171,7 +171,7 @@ const FloristicsPage = () => {
         >
           Обрати цей курс
         </Button>
-      </div>
+      </section>
     </Container>
   );
 };

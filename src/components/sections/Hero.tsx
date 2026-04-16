@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <div id='#hero' className="relative w-full overflow-hidden">
+    <div id='#hero' className="relative w-full">
       <div className="absolute inset-0 md:hidden z-0">
         <Image
           src="/img/hero/moblast.webp"
@@ -26,7 +26,6 @@ const Hero = () => {
           z-10
           md:bg-none
           md:h-[834px]
-          [@media(max-width:767px)]:h-[90vh]
           w-full
           pt-[120px] md:pt-[140px] lg:pt-[160px]
         "
@@ -52,7 +51,7 @@ const Hero = () => {
                   Флористика та food-флористика для тих, хто любить творити
                 </p>
               </div>
-              <div className="flex flex-col gap-[8px] lg:flex-row md:gap-[20px] w-full">
+              <div className="flex flex-col gap-[8px] lg:flex-row md:gap-[20px] pt-2 w-full">
                 <Button className="w-full" variant="primary" href="/courses">
                   Записатися на курс
                 </Button>

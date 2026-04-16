@@ -53,7 +53,7 @@ const Modal: React.FC<ModalProps> = ({
 
   return (
     <Container
-      className={`fixed inset-0 z-50 bg-background lg:bg-transparent transition-all duration-300 ${
+      className={`fixed inset-0 z-100 bg-background lg:bg-transparent transition-all duration-300 ${
         isOpen
           ? "opacity-100 backdrop-blur-sm"
           : "opacity-0 backdrop-blur-none lg:backdrop-blur-none"
@@ -61,7 +61,7 @@ const Modal: React.FC<ModalProps> = ({
     >
       <button
         onClick={onClose}
-        className="absolute top-[60px] right-5 z-10 p-2  rounded-full transition-all duration-200 hover:scale-110 lg:hidden md:block"
+        className="hidden lg:absolute top-[60px] right-5 z-10 p-2  rounded-full transition-all duration-200 hover:scale-110 lg:hidden md:block"
         aria-label="Закрити"
       >
         <svg

@@ -11,7 +11,7 @@ type StoryBlockProps = {
   reverse?: boolean;
   showHeading?: boolean;
   paddingX?: { md?: string; lg?: string };
-  isMobileCard?: boolean; // Додано для слайдера
+  isMobileCard?: boolean; 
 };
 
 function StoryBlock({
@@ -27,7 +27,6 @@ function StoryBlock({
   const imageDirection = reverse ? 100 : -100;
   const textDirection = reverse ? -100 : 100;
 
-  // Якщо це картка в мобільному слайдері
   if (isMobileCard) {
     return (
       <div className="bg-[#ECE9E3] rounded-lg overflow-hidden flex flex-col h-full">
@@ -55,8 +54,7 @@ function StoryBlock({
       </div>
     );
   }
-
-  // Десктопна версія (залишається вашою)
+  
   return (
     <Container
         className={`w-full hidden lg:flex pt-40 items-center overflow-hidden ${
