@@ -83,9 +83,9 @@ export function FullscreenSlider({
     >
       <button
         onClick={(e) => { e.stopPropagation(); onClose(); }}
-        className="absolute top-6 right-4 lg:top-10 lg:right-10 z-[10000] p-4 cursor-pointer"
+        className="absolute top-6 right-4 lg:top-2 lg:right-4 z-[10000] p-4 cursor-pointer"
       >
-        <span className="text-[#F7F5F3] lg:text-5xl text-3xl font-light">✕</span>
+        <span className="text-[#F7F5F3] lg:text-3xl text-3xl font-light">✕</span>
       </button>
 
       <div 
@@ -106,7 +106,7 @@ export function FullscreenSlider({
               key={idx} 
               className="w-[85%] lg:w-[33.33%] shrink-0 flex items-center justify-center px-2 lg:px-4"
             >
-              <div className="relative w-full h-[450px] lg:h-[550px] pointer-events-none select-none">
+              <div className="relative w-full h-[450px] lg:h-[700px] pointer-events-none select-none">
                 <Image
                   src={src}
                   alt={`Slide ${idx}`}

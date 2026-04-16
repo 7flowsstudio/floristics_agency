@@ -21,7 +21,7 @@ const Footer = () => {
             />
           </Link>
 
-          <nav className="flex flex-col items-center gap-6 text-primary font-medium text-[20px]">
+          <nav className="flex flex-col items-center gap-5 text-primary font-medium text-[20px]">
             {footerLinks.map(link => (
               <Link
                 key={link.href}

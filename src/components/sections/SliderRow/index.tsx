@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import { PaginationDots } from './PaginationsDots';
 import { FullscreenSlider } from './FullScreenSlider';
-
+import { motion } from 'framer-motion';
 export const GAP = 8;
 
 export function SliderRow({
@@ -33,12 +33,12 @@ export function SliderRow({
 
     const observerOptions = {
       root: container,
-      threshold: 0.5, 
-      rootMargin: '0px -10% 0px -10%', 
+      threshold: 0.5,
+      rootMargin: '0px -10% 0px -10%',
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           const index = Number(entry.target.getAttribute('data-index'));
           setScrollIndex(index);
@@ -46,7 +46,7 @@ export function SliderRow({
       });
     }, observerOptions);
 
-    itemRefs.current.forEach((item) => {
+    itemRefs.current.forEach(item => {
       if (item) observer.observe(item);
     });
 
@@ -104,7 +104,13 @@ export function SliderRow({
           {title}
         </h2>
 
-        <div className="relative px-[20px] md:px-0">
+        <motion.div
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 1, ease: 'easeOut', delay: 0.1 }}
+          className="relative px-[20px] md:px-0"
+        >
           <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-[240px] hidden md:block bg-gradient-to-r from-[#F7F5F3] to-transparent" />
           <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-[240px] hidden md:block bg-gradient-to-l from-[#F7F5F3] to-transparent" />
 
@@ -122,7 +128,9 @@ export function SliderRow({
             {images.map((src, index) => (
               <div
                 key={index}
-                ref={el => { itemRefs.current[index] = el; }}
+                ref={el => {
+                  itemRefs.current[index] = el;
+                }}
                 data-index={index}
                 onClick={() => {
                   if (!hasMoved) {
@@ -143,7 +151,7 @@ export function SliderRow({
                   alt={`photo-${index}`}
                   width={520}
                   height={580}
-                  priority={index < 3} 
+                  priority={index < 3}
                 />
               </div>
             ))}
@@ -156,7 +164,7 @@ export function SliderRow({
               onDotClick={scrollToSlide}
             />
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <FullscreenSlider

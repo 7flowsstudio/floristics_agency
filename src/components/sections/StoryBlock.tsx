@@ -1,6 +1,8 @@
+'use client';
 import Image from 'next/image';
 import Container from '../layout/Container';
 import SectionHeading from '../ui/SectionHeading';
+import { motion } from 'framer-motion';
 
 type StoryBlockProps = {
   imageSrc: string;
@@ -9,6 +11,7 @@ type StoryBlockProps = {
   reverse?: boolean;
   showHeading?: boolean;
   paddingX?: { md?: string; lg?: string };
+  isMobileCard?: boolean; 
 };
 
 function StoryBlock({
@@ -18,55 +21,83 @@ function StoryBlock({
   reverse = false,
   showHeading = false,
   paddingX = { md: 'px-[40px]', lg: 'px-[200px]' },
+  isMobileCard = false,
 }: StoryBlockProps) {
-  return (
-    <>
-      <div className="lg:hidden">
-        <div className="bg-card h-full max-w-131.25 mx-auto px-5 pt-8 pb-12 relative overflow-hidden">
+
+  const imageDirection = reverse ? 100 : -100;
+  const textDirection = reverse ? -100 : 100;
+
+  if (isMobileCard) {
+    return (
+      <div className="bg-[#ECE9E3] rounded-lg overflow-hidden flex flex-col h-full">
+        <div className="relative w-full h-[400px]">
           <Image
-            className="max-h-113.25 w-full object-cover rounded-lg"
-            width={336}
-            height={453}
-            alt={imageAlt}
             src={imageSrc}
+            alt={imageAlt}
+            fill
+            className="object-cover object-top"
           />
-
-          <div className="absolute left-0 right-0 bottom-0 h-[48%] bg-[linear-gradient(180deg,rgba(236,233,227,0)_0%,rgba(236,233,227,0.6)_40%,#ECE9E3_100%)] pointer-events-none" />
-
-          <div className="absolute left-0 right-0 bottom-0 z-10 flex items-end">
-            <div className="w-full backdrop-blur-[2px] px-6 pb-4">
-              <div className="italic text-sm leading-5 sm:text-base sm:leading-6 space-y-3">
-                {testimonial.map((paragraph, index) => (
-                  <p key={index} className="mb-2 lg:text-[24px]">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            </div>
+          <div 
+            className="absolute inset-x-0 bottom-0 h-[120px]" 
+            style={{
+              background: 'linear-gradient(180deg, rgba(236, 233, 227, 0) 0%, #ECE9E3 100%)'
+            }}
+          />
+        </div>
+        <div className="px-6 pb-2 pt-2 text-left">
+          <div className="space-y-4 text-[#1C1C1C] text-[16px] leading-[1.4] italic">
+            {testimonial.map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
           </div>
         </div>
       </div>
-
-      <Container
-        className={`w-full hidden lg:flex pt-40 items-center ${
+    );
+  }
+  
+  return (
+    <Container
+        className={`w-full hidden lg:flex pt-40 items-center overflow-hidden ${
           reverse ? 'flex-row-reverse' : ''
         }`}
       >
-        <Image
-          src={imageSrc}
-          alt={imageAlt}
-          width={412}
-          height={555}
-          className="rounded-lg object-cover"
-        />
+        <motion.div
+          initial={{ opacity: 0, x: imageDirection }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="flex-shrink-0"
+        >
+          <Image
+            src={imageSrc}
+            alt={imageAlt}
+            width={412}
+            height={555}
+            className="rounded-lg object-cover"
+          />
+        </motion.div>
 
         <div className="flex-1">
           {showHeading && (
-            <SectionHeading className="font-secondary text-primary text-[36px] md:text-[42px] lg:text-[64px] leading-10 max-w-67.25 mx-auto mb-10 lg:max-w-none">
-              Історії наших учнів та учениць
-            </SectionHeading>
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <SectionHeading className="font-secondary text-primary text-[36px] md:text-[42px] lg:text-[64px] leading-10 max-w-67.25 mx-auto mb-10 lg:max-w-none">
+                Історії наших учнів та учениць
+              </SectionHeading>
+            </motion.div>
           )}
-          <div className="md:flex-1">
+
+          <motion.div
+            initial={{ opacity: 0, x: textDirection }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="md:flex-1"
+          >
             <div
               className={`bg-card ${
                 reverse
@@ -89,10 +120,9 @@ function StoryBlock({
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </Container>
-    </>
   );
 }
 
