@@ -156,7 +156,7 @@ const CoursesPage = () => {
               Оберіть свій курс або зв’яжіться з нами для більш детальної
               інформації
             </p>
-            <Button href="/#form" className="w-full" variant="primary">
+            <Button href="/contacts" className="w-full" variant="primary">
               Зв’язатися
             </Button>
           </div>
