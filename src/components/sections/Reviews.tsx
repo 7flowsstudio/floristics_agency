@@ -51,7 +51,7 @@ function Reviews() {
         </div>
         <Container>
           <div className="flex justify-center mt-10">
-            <Button {...navLinkProps} className="w-full max-w-131.25">
+            <Button {...navLinkProps} className="w-full md:w-[412px]">
               Дивитися усі відгуки
             </Button>
           </div>

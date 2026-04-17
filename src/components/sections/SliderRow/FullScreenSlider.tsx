@@ -106,7 +106,7 @@ export function FullscreenSlider({
               key={idx} 
               className="w-[85%] lg:w-[33.33%] shrink-0 flex items-center justify-center px-2 lg:px-4"
             >
-              <div className="relative w-full h-[450px] lg:h-[700px] pointer-events-none select-none">
+              <div className="relative w-full h-[450px] md:h-[700px] pointer-events-none select-none">
                 <Image
                   src={src}
                   alt={`Slide ${idx}`}
