@@ -40,7 +40,7 @@ export default function CallToAction({
         )}
         <p
           className={clsx(
-            "text-[20px] md:text-[32px] text-dark-brown lg:w-[626px]",
+            "text-[20px] lg:text-[32px] text-dark-brown lg:w-[626px]",
             questionClassName,
           )}
         >

@@ -37,11 +37,11 @@ const SliderWithInfo: FC<SliderWithInfoProps> = ({ heading, items }) => {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 1, ease: 'easeOut', delay: 0.1 }}
-        className="pt-[40px] px-[20px] md:px-0 relative"
+        className="pt-[40px] px-[20px] lg:px-0 relative"
       >
         {/* LEFT gradient */}
         <div
-          className="pointer-events-none absolute left-0 top-0 h-full w-[240px] z-20 hidden md:block"
+          className="pointer-events-none absolute left-0 top-0 h-full w-[240px] z-20 hidden lg:block"
           style={{
             background:
               'linear-gradient(270deg, rgba(247,245,243,0) 0%, #F7F5F3 100%)',
@@ -105,7 +105,7 @@ const SliderWithInfo: FC<SliderWithInfoProps> = ({ heading, items }) => {
 
         {/* RIGHT gradient */}
         <div
-          className="pointer-events-none absolute right-0 top-0 h-full w-[240px] z-20 hidden md:block"
+          className="pointer-events-none absolute right-0 top-0 h-full w-[240px] z-20 hidden lg:block"
           style={{
             background:
               'linear-gradient(90deg, rgba(247,245,243,0) 0%, #F7F5F3 100%)',

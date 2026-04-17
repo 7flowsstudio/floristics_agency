@@ -109,10 +109,10 @@ export function SliderRow({
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 1, ease: 'easeOut', delay: 0.1 }}
-          className="relative px-[20px] md:px-0"
+          className="relative px-[20px] lg:px-0"
         >
-          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-[240px] hidden md:block bg-gradient-to-r from-[#F7F5F3] to-transparent" />
-          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-[240px] hidden md:block bg-gradient-to-l from-[#F7F5F3] to-transparent" />
+          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-[240px] hidden lg:block bg-gradient-to-r from-[#F7F5F3] to-transparent" />
+          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-[240px] hidden lg:block bg-gradient-to-l from-[#F7F5F3] to-transparent" />
 
           <div
             ref={containerRef}

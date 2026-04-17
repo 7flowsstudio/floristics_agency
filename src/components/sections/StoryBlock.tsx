@@ -30,7 +30,7 @@ function StoryBlock({
   if (isMobileCard) {
     return (
       <div className="bg-[#ECE9E3] rounded-lg overflow-hidden flex flex-col h-full">
-        <div className="relative w-full h-[400px]">
+        <div className="relative w-full h-[400px] md:h-[600px]">
           <Image
             src={imageSrc}
             alt={imageAlt}
@@ -54,7 +54,7 @@ function StoryBlock({
       </div>
     );
   }
-  
+
   return (
     <Container
         className={`w-full hidden lg:flex pt-40 items-center overflow-hidden ${

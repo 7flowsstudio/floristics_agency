@@ -10,10 +10,10 @@ const About = () => {
       <Container>
         <div className="flex flex-col min-[1000px]:grid min-[1000px]:grid-cols-2 min-[1000px]:grid-rows-[auto_auto] min-[1000px]:gap-x-[125px]">
           <div className="flex flex-col justify-start md:row-start-1 md:col-start-2">
-            <SectionHeading className="text-[#2D1106] font-medium md:text-left text-[24px] leading-[100%] tracking-[0.01em] pb-[8px] min-[1000px]:pb-[16px]">
+            <SectionHeading className="text-[#2D1106] font-medium lg:text-left text-[24px] leading-[100%] tracking-[0.01em] pb-[8px] min-[1000px]:pb-[16px]">
               Про студію “With taste”
             </SectionHeading>
-            <SectionSubheading className="text-center md:text-left pb-[24px] min-[1000px]:pb-[40px]">
+            <SectionSubheading className="text-center lg:text-left pb-[24px] min-[1000px]:pb-[40px]">
               У студії «With Taste» ми поєднуємо квіти, мистецтво та натхнення.{' '}
               <br />
               Тут народжуються ідеї, оживають квіти та кожен знаходить свій шлях
@@ -57,7 +57,7 @@ const About = () => {
             </div>
           </div>
           <Button
-            className="w-full md:max-w-[336px] mx-auto mt-[32px] min-[1000px]:hidden"
+            className="w-full md:w-[412px] mx-auto mt-[32px] min-[1000px]:hidden"
             iconSrc="/arrow-right.svg"
             variant="outline"
             iconPosition="right"

@@ -10,7 +10,7 @@ const page = () => {
   return (
     <div className="pt-28.75 lg:pt-0">
       <div className="lg:hidden">
-        <SectionHeading className="font-secondary text-primary text-[36px] leading-10 text-center mb-8 px-5">
+        <SectionHeading className="font-secondary text-primary text-[36px] md:text-[42px] leading-10 text-center mb-8 px-5">
           Історії наших учнів та учениць
         </SectionHeading>
 
@@ -20,7 +20,7 @@ const page = () => {
             gap={20}
             containerClassName="px-5"
             renderCard={(story, index) => (
-              <div key={index} className="flex-shrink-0 w-[calc(100vw-40px)]">
+              <div key={index} className="flex-shrink-0 w-[calc(100vw-40px)] md:w-[600px] md:mx-4">
                 <StoryBlock
                   imageSrc={story.image}
                   imageAlt={story.alt}
