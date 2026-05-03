@@ -128,12 +128,12 @@ const FoodFlCoursePage = () => {
         />
       </div>
       <div className="flex flex-col items-center pb-[60px] md:pb-[100px] lg:pb-[180px]">
-        <div>
+        {/* <div>
           <p className="text-[20px] font-medium md:text-[24px] pt-[24px] md:pt-[48px] pb-[40px] md:pb-[48px]">
             Вартість курсу:
             <span className="line-through">1 500 грн</span>
           </p>
-        </div>
+        </div> */}
 
         <Button
           href="/#form"

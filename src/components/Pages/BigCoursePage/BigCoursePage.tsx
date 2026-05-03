@@ -137,7 +137,7 @@ const BigCoursePage = () => {
           <li className="text-[18px] md:text-[20px]">Формат: онлайн</li>
           <li className="text-[18px] md:text-[20px]">Доступ: 6 місяців</li>
         </ul>
-        <div>
+        {/* <div>
           <p className="text-[20px] font-medium md:text-[24px]">
             Вартість повного курсу:{' '}
             <span className="line-through">2 617 грн</span>
@@ -145,12 +145,16 @@ const BigCoursePage = () => {
           <p className="text-[20px] font-medium text-center md:text-[24px]">
             2 500 грн
           </p>
-        </div>
+        </div> */}
         <p className="text-center text-[#1C686D] text-[18px] md:text-[22px] pt-[40px] pb-[24px] md:pt-[48px] md:pb-[48px]">
           Обери той мікс опційних курсів, що цікавить саме тебе!
         </p>
 
-        <Button href='/#form' className="w-full max-w-[412px]" variant="primary">
+        <Button
+          href="/#form"
+          className="w-full max-w-[412px]"
+          variant="primary"
+        >
           Обрати цей курс
         </Button>
       </div>

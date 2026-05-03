@@ -75,12 +75,12 @@ const BusinessCoursePage = () => {
           <li className="text-[18px] md:text-[20px]">Формат: онлайн</li>
           <li className="text-[18px] md:text-[20px]">Доступ: 6 місяців</li>
         </ul>
-        <div>
+        {/* <div>
           <p className="text-[20px] font-medium md:text-[24px] pb-[40px] md:pb-[48px]">
             Вартість курсу:
             <span className="line-through">389 грн</span>
           </p>
-        </div>
+        </div> */}
 
         <Button
           href="/#form"
