@@ -140,7 +140,9 @@ export default function CourseForm({ onSuccess }: CourseFormProps) {
 
       <Button
         disabled={pending || !isAgreed}
-        className="w-full md:w-[412px] mt-8 mb-20 lg:mt-10 lg:mb-45 mx-auto lg:max-w-103"
+        className={`w-full md:w-[412px] mt-8 mb-20 lg:mt-10 lg:mb-45 mx-auto lg:max-w-103
+    ${!isAgreed ? "opacity-60 cursor-not-allowed" : ""}
+  `}
       >
         {pending ? "Відправка..." : "Хочу творити разом"}
       </Button>
