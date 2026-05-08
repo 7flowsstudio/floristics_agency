@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { FC } from 'react';
-import SectionHeading from '@/components/ui/SectionHeading';
-import Slider from '@/components/ui/Slider';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { FC } from "react";
+import SectionHeading from "@/components/ui/SectionHeading";
+import Slider from "@/components/ui/Slider";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 export type SliderItem = {
   id: string;
@@ -36,7 +36,7 @@ const SliderWithInfo: FC<SliderWithInfoProps> = ({ heading, items }) => {
         initial={{ opacity: 0, x: 100 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.1 }}
-        transition={{ duration: 1, ease: 'easeOut', delay: 0.1 }}
+        transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
         className="pt-[40px] px-[20px] lg:px-0 relative"
       >
         {/* LEFT gradient */}
@@ -44,7 +44,7 @@ const SliderWithInfo: FC<SliderWithInfoProps> = ({ heading, items }) => {
           className="pointer-events-none absolute left-0 top-0 h-full w-[240px] z-20 hidden lg:block"
           style={{
             background:
-              'linear-gradient(270deg, rgba(247,245,243,0) 0%, #F7F5F3 100%)',
+              "linear-gradient(270deg, rgba(247,245,243,0) 0%, #F7F5F3 100%)",
           }}
         />
 
@@ -52,7 +52,7 @@ const SliderWithInfo: FC<SliderWithInfoProps> = ({ heading, items }) => {
           items={items}
           gap={8}
           containerClassName="px-[20px] md:px-[calc((100vw-882px)/2)]"
-          renderCard={item => (
+          renderCard={(item) => (
             <div
               key={item.id}
               className="
@@ -68,9 +68,9 @@ const SliderWithInfo: FC<SliderWithInfoProps> = ({ heading, items }) => {
                 <div className="relative w-full md:w-[433px] aspect-[4/3] md:aspect-auto md:h-full flex-shrink-0">
                   <Image
                     src={item.imageUrl}
-                    alt={item.title || 'image'}
+                    alt={item.title || "image"}
                     fill
-                    className="object-cover object-top rounded"
+                    className="object-cover object-center rounded"
                   />
                 </div>
               )}
@@ -108,7 +108,7 @@ const SliderWithInfo: FC<SliderWithInfoProps> = ({ heading, items }) => {
           className="pointer-events-none absolute right-0 top-0 h-full w-[240px] z-20 hidden lg:block"
           style={{
             background:
-              'linear-gradient(90deg, rgba(247,245,243,0) 0%, #F7F5F3 100%)',
+              "linear-gradient(90deg, rgba(247,245,243,0) 0%, #F7F5F3 100%)",
           }}
         />
       </motion.div>
