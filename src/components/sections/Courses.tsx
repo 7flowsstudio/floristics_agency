@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import { courses } from '@/data/courses';
-import Image from 'next/image';
-import Link from 'next/link';
-import Container from '../layout/Container';
-import SectionHeading from '../ui/SectionHeading';
-import SectionSubheading from '../ui/SectionSubheading';
-import Button from '../ui/Button';
-import { BestsellerBadge } from '../ui/BestsellerBadge';
-import clsx from 'clsx';
-import Slider from '../ui/Slider';
+import { courses } from "@/data/courses";
+import Image from "next/image";
+import Link from "next/link";
+import Container from "../layout/Container";
+import SectionHeading from "../ui/SectionHeading";
+import SectionSubheading from "../ui/SectionSubheading";
+import Button from "../ui/Button";
+import { BestsellerBadge } from "../ui/BestsellerBadge";
+import clsx from "clsx";
+import Slider from "../ui/Slider";
 
 export type CourseSliderItem = {
   id: string;
@@ -46,18 +46,18 @@ const Courses = () => {
               href={item.url}
               key={item.id}
               className={clsx(
-                'flex-shrink-0 rounded-lg overflow-hidden relative',
-                'min-w-[320px]  [@media(max-width:374px)]:min-w-[280px] h-[440px] gradient-image-overlay',
-                index === 0 && 'border-[1.5px] border-[#1C686D]',
+                "flex-shrink-0 rounded-lg overflow-hidden relative",
+                "min-w-[320px]  [@media(max-width:334px)]:min-w-[280px] h-[440px] min-[375px]:max-[440px]:min-w-[360px] gradient-image-overlay",
+                index === 0 && "border-[1.5px] border-[#1C686D]",
               )}
             >
               {item.imageUrl && (
                 <div className="w-full h-[440px] relative rounded mb-3">
                   <Image
                     src={item.imageUrl}
-                    alt={item.title || 'image'}
+                    alt={item.title || "image"}
                     fill
-                    style={{ objectFit: 'cover' }}
+                    style={{ objectFit: "cover" }}
                   />
                 </div>
               )}
@@ -81,7 +81,7 @@ const Courses = () => {
       </div>
 
       <div className="hidden [@media(min-width:944px)]:grid md:grid-cols-3 md:gap-8">
-        {items.slice(-3).map(item => (
+        {items.slice(-3).map((item) => (
           <Link
             href={item.url}
             key={item.id}
@@ -91,7 +91,7 @@ const Courses = () => {
               <div className="w-full h-[440px] relative rounded-lg overflow-hidden gradient-image-overlay">
                 <Image
                   src={item.imageUrl}
-                  alt={item.title || 'image'}
+                  alt={item.title || "image"}
                   fill
                   className="object-cover"
                 />
