@@ -47,7 +47,8 @@ const Courses = () => {
               key={item.id}
               className={clsx(
                 "flex-shrink-0 rounded-lg overflow-hidden relative",
-                "min-w-[320px]  [@media(max-width:334px)]:min-w-[280px] h-[440px] min-[375px]:max-[440px]:min-w-[360px] gradient-image-overlay",
+                "w-[clamp(280px,90vw,360px)] h-[440px]",
+                "gradient-image-overlay",
                 index === 0 && "border-[1.5px] border-[#1C686D]",
               )}
             >
